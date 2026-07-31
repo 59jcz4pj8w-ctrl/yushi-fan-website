@@ -1,0 +1,16 @@
+# Build/dependency directories
+node_modules/
+.vercel/
+.next/
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
