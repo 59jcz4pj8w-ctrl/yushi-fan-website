@@ -5,7 +5,7 @@
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GIST_ID = process.env.GIST_ID;
-const MAX_MESSAGES = 500;
+const MAX_MESSAGES = 1000;
 const MSG_MAX_LEN = 50;
 const MSG_MAX_NAME = 20;
 
