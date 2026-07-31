@@ -1,0 +1,3094 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="关于得能勇志 YUSHI 的个人介绍粉丝站">
+  <meta name="theme-color" content="#3B82F6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="关于勇志">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/cover.jpg">
+  <link rel="icon" href="assets/cat.jpg">
+  <title>关于勇志 YUSHI ⭐</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue-primary: #3B82F6;
+      --blue-deep: #1E40AF;
+      --blue-light: #60A5FA;
+      --blue-pale: #DBEAFE;
+      --blue-bg: #EFF6FF;
+      --pink-primary: #EC4899;
+      --pink-deep: #BE185D;
+      --pink-light: #F472B6;
+      --pink-pale: #FCE7F3;
+      --pink-bg: #FDF2F8;
+      --purple-primary: #8B5CF6;
+      --purple-deep: #6D28D9;
+      --purple-light: #A78BFA;
+      --purple-pale: #EDE9FE;
+      --purple-bg: #F5F3FF;
+      --gold-primary: #F59E0B;
+      --gold-light: #FCD34D;
+      --gold-pale: #FEF3C7;
+      --white: #FFFFFF;
+      --text-dark: #1E3A5F;
+      --text-body: #374151;
+      --text-muted: #6B7280;
+      --card-shadow: 0 4px 20px rgba(59, 130, 246, 0.12);
+      --card-shadow-hover: 0 8px 30px rgba(59, 130, 246, 0.22);
+      --radius: 18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--text-body);
+      line-height: 1.7;
+      min-height: 100vh;
+      /* 蓝色波点背景 */
+      background-color: var(--blue-pale);
+      background-image: radial-gradient(var(--blue-light) 1.8px, transparent 1.8px);
+      background-size: 20px 20px;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* ===== 导航栏 ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1.5px solid rgba(59, 130, 246, 0.15);
+      box-shadow: 0 2px 12px rgba(59, 130, 246, 0.06);
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--blue-deep);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-logo span { font-size: 16px; }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 20px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .nav-links a.active {
+      background: var(--blue-primary);
+      color: #fff;
+    }
+    .nav-links a:not(.active) {
+      background: rgba(59, 130, 246, 0.08);
+      color: var(--blue-deep);
+    }
+    .nav-links a:not(.active):hover {
+      background: rgba(59, 130, 246, 0.18);
+    }
+    .nav-badge {
+      font-size: 10px;
+      background: #FBBF24;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 8px;
+      margin-left: 4px;
+      vertical-align: top;
+    }
+
+    /* ===== 封面 Hero ===== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 58vh;
+      min-height: 380px;
+      max-height: 520px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("assets/cover.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.55);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(30, 64, 175, 0.3) 0%, rgba(59, 130, 246, 0.55) 60%, rgba(219, 234, 254, 0.95) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+      animation: fadeUp 1s ease;
+    }
+    .hero-title {
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+    .hero-subtitle {
+      font-size: clamp(14px, 3.5vw, 20px);
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .hero-stars {
+      font-size: 18px;
+      margin-top: 12px;
+      letter-spacing: 8px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== 主内容区 ===== */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 120px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--blue-deep);
+      margin: 32px 0 16px;
+      padding-left: 16px;
+      border-left: 5px solid var(--blue-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== 名字卡片 ===== */
+    .name-card {
+      background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(59, 130, 246, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .name-card::before {
+      content: "";
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    .name-card::after {
+      content: "";
+      position: absolute;
+      bottom: -40px; left: -20px;
+      width: 100px; height: 100px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+    .name-card h2 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .name-card .name-jp {
+      font-size: 16px;
+      opacity: 0.9;
+      letter-spacing: 3px;
+      position: relative;
+      z-index: 1;
+    }
+    .name-card .name-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .name-card .name-tags span {
+      background: rgba(255,255,255,0.2);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ===== 信息卡片网格 ===== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(59, 130, 246, 0.06);
+    }
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    .info-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 10px;
+      border-bottom: 2px dashed rgba(59, 130, 246, 0.15);
+    }
+    .info-card h3 .icon { font-size: 20px; }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 6px 0;
+      font-size: 14px;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label {
+      color: var(--text-muted);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .info-row .value {
+      color: var(--text-dark);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* ===== 标签云 ===== */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .tag-cloud span {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--blue-deep);
+      padding: 5px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ===== 时间线 ===== */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px; top: 4px; bottom: 4px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--blue-light), var(--blue-primary), var(--blue-deep));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 10px 0 10px 16px;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -24px; top: 16px;
+      width: 14px; height: 14px;
+      background: var(--white);
+      border: 3px solid var(--blue-primary);
+      border-radius: 50%;
+    }
+    .timeline-date {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue-primary);
+      margin-bottom: 2px;
+    }
+    .timeline-text {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* ===== 引言卡片 ===== */
+    .quote-card {
+      background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      margin: 24px 0;
+      border: 2px dashed rgba(59, 130, 246, 0.25);
+    }
+    .quote-card .quote-mark {
+      font-size: 36px;
+      color: var(--blue-primary);
+      line-height: 1;
+    }
+    .quote-card p {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin: 8px 0;
+      letter-spacing: 1px;
+    }
+    .quote-card .quote-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ===== 奶茶猫 ===== */
+    .cat-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 200;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cat-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+      transition: transform 0.3s ease;
+      animation: catBounce 2.5s ease-in-out infinite;
+    }
+    .cat-container:hover .cat-img,
+    .cat-container:active .cat-img {
+      transform: scale(1.15) rotate(-8deg);
+    }
+    @keyframes catBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .cat-bubble {
+      position: absolute;
+      bottom: 82px;
+      left: 10px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue-deep);
+      white-space: nowrap;
+      max-width: 240px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transform: translateY(10px) scale(0.8);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .cat-bubble.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .cat-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 24px;
+      width: 0; height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #fff;
+    }
+    .cat-hint {
+      position: absolute;
+      bottom: 2px;
+      right: -6px;
+      font-size: 10px;
+      background: #FBBF24;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-weight: 700;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ===== 官博单人照画廊 ===== */
+    .subsection-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin: 24px 0 10px;
+      padding-left: 16px;
+      border-left: 3px solid var(--blue-light);
+      line-height: 1.5;
+    }
+    .weibo-section-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+      padding-left: 16px;
+      line-height: 1.6;
+    }
+    .weibo-year-divider {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--blue-primary);
+      margin: 24px 0 12px;
+      padding-left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .weibo-year-divider::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      background: var(--blue-primary);
+      border-radius: 2px;
+    }
+    .weibo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .weibo-date-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1.5px solid rgba(59, 130, 246, 0.1);
+    }
+    .weibo-date-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+    }
+    .weibo-date-header {
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-primary) 100%);
+      color: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .weibo-date-text {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .weibo-photo-count {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    .weibo-links {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .weibo-link-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: var(--blue-bg);
+      color: var(--blue-deep);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.15s ease;
+      border: 1px solid rgba(59, 130, 246, 0.08);
+    }
+    .weibo-link-item:hover {
+      background: var(--blue-pale);
+      transform: translateX(5px);
+    }
+    .weibo-link-item:active {
+      transform: translateX(5px) scale(0.97);
+    }
+    .weibo-link-item .link-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .weibo-link-item .link-label {
+      flex: 1;
+    }
+    .weibo-link-item .link-arrow {
+      font-size: 16px;
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .weibo-link-item:hover .link-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    /* ===== 官抖单人画廊（粉色主题）===== */
+    .dy-subsection-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--pink-deep);
+      margin: 32px 0 10px;
+      padding-left: 16px;
+      border-left: 3px solid var(--pink-light);
+      line-height: 1.5;
+    }
+    .dy-section-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+      padding-left: 16px;
+      line-height: 1.6;
+    }
+    .dy-year-divider {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--pink-primary);
+      margin: 24px 0 12px;
+      padding-left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dy-year-divider::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      background: var(--pink-primary);
+      border-radius: 2px;
+    }
+    .dy-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .dy-date-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(236, 72, 153, 0.1);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1.5px solid rgba(236, 72, 153, 0.1);
+    }
+    .dy-date-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(236, 72, 153, 0.2);
+    }
+    .dy-date-header {
+      background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink-primary) 100%);
+      color: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dy-date-text {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .dy-video-count {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    .dy-tag-badge {
+      font-size: 10px;
+      background: var(--pink-pale);
+      color: var(--pink-deep);
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .dy-links {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .dy-link-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dy-link-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: var(--pink-bg);
+      color: var(--pink-deep);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.15s ease;
+      border: 1px solid rgba(236, 72, 153, 0.08);
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .dy-link-item:hover {
+      background: var(--pink-pale);
+      transform: translateX(5px);
+    }
+    .dy-link-item:active {
+      transform: translateX(5px) scale(0.97);
+    }
+    .dy-link-item .link-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .dy-link-item .link-label {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .dy-link-item .link-arrow {
+      font-size: 14px;
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .dy-link-item:hover .link-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+    .dy-copy-btn {
+      flex-shrink: 0;
+      background: var(--pink-pale);
+      color: var(--pink-deep);
+      border: 1px solid rgba(236, 72, 153, 0.15);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .dy-copy-btn:hover {
+      background: var(--pink-light);
+      color: #fff;
+    }
+    .dy-copy-btn:active {
+      transform: scale(0.92);
+    }
+    .dy-copy-btn.copied {
+      background: var(--pink-primary);
+      color: #fff;
+    }
+
+    /* ===== 演出合集（紫色主题）===== */
+    .tour-section-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+      padding-left: 16px;
+      line-height: 1.6;
+    }
+    .tour-banner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-primary) 50%, var(--purple-light) 100%);
+      color: #fff;
+      padding: 16px 22px;
+      border-radius: 16px;
+      margin: 28px 0 20px;
+      box-shadow: 0 6px 24px rgba(139, 92, 246, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .tour-banner::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20px;
+      width: 140px;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.08);
+      transform: rotate(18deg);
+      pointer-events: none;
+    }
+    .tour-banner-label {
+      font-size: 12px;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.22);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .tour-banner-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      z-index: 1;
+      flex: 1;
+    }
+    .tour-banner-soon {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      z-index: 1;
+    }
+    .tour-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+    .tour-card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+      border: 1.5px solid rgba(139, 92, 246, 0.12);
+      position: relative;
+    }
+    .tour-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--purple-light), var(--purple-primary));
+      z-index: 2;
+    }
+    .tour-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(139, 92, 246, 0.22);
+    }
+    .tour-card-header {
+      background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple-primary) 100%);
+      color: #fff;
+      padding: 14px 16px 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .tour-date-text {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+    .tour-venue-info {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 12px;
+    }
+    .tour-venue-flag {
+      font-size: 16px;
+    }
+    .tour-card-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tour-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .tour-group-label {
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding-left: 2px;
+    }
+    .tour-group-label.weibo {
+      color: var(--blue-deep);
+    }
+    .tour-group-label.bili {
+      color: #FB7299;
+    }
+    .tour-link-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tour-link-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 11px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s ease, transform 0.15s ease;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .tour-link-item.weibo {
+      background: var(--blue-bg);
+      color: var(--blue-deep);
+      border: 1px solid rgba(59, 130, 246, 0.08);
+    }
+    .tour-link-item.weibo:hover {
+      background: var(--blue-pale);
+      transform: translateX(4px);
+    }
+    .tour-link-item.bili {
+      background: #FFF0F5;
+      color: #C4314B;
+      border: 1px solid rgba(251, 114, 153, 0.12);
+    }
+    .tour-link-item.bili:hover {
+      background: #FFE0EC;
+      transform: translateX(4px);
+    }
+    .tour-link-item .link-icon {
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .tour-link-item .link-label {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tour-link-item .link-arrow {
+      font-size: 13px;
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .tour-link-item:hover .link-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+    .tour-copy-btn {
+      flex-shrink: 0;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+    .tour-copy-btn.weibo {
+      background: var(--blue-pale);
+      color: var(--blue-deep);
+      border-color: rgba(59, 130, 246, 0.15);
+    }
+    .tour-copy-btn.weibo:hover {
+      background: var(--blue-light);
+      color: #fff;
+    }
+    .tour-copy-btn.bili {
+      background: #FFE0EC;
+      color: #C4314B;
+      border-color: rgba(251, 114, 153, 0.15);
+    }
+    .tour-copy-btn.bili:hover {
+      background: #FB7299;
+      color: #fff;
+    }
+    .tour-copy-btn:active {
+      transform: scale(0.92);
+    }
+    .tour-copy-btn.copied {
+      background: var(--purple-primary) !important;
+      color: #fff !important;
+    }
+    .tour-empty-note {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* ===== 粉丝留言板 ===== */
+    .msg-board {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(59, 130, 246, 0.06);
+    }
+    .msg-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 2px dashed rgba(59, 130, 246, 0.15);
+    }
+    .msg-form-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .msg-input-name {
+      flex: 0 0 auto;
+      min-width: 160px;
+      padding: 10px 14px;
+      border: 2px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.25s;
+      background: rgba(219, 234, 254, 0.3);
+    }
+    .msg-input-name:focus { border-color: var(--blue-primary); }
+    .msg-input-name::placeholder { color: var(--text-muted); }
+    .msg-textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px 14px;
+      border: 2px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text-dark);
+      outline: none;
+      resize: vertical;
+      font-family: inherit;
+      transition: border-color 0.25s;
+      background: rgba(219, 234, 254, 0.3);
+    }
+    .msg-textarea:focus { border-color: var(--blue-primary); }
+    .msg-textarea::placeholder { color: var(--text-muted); }
+    .msg-submit-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .msg-anon-check {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+    }
+    .msg-anon-check input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--blue-primary);
+      cursor: pointer;
+    }
+    .msg-submit-btn {
+      background: linear-gradient(135deg, #3B82F6, #1E40AF);
+      color: #fff;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    }
+    .msg-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+    .msg-submit-btn:active { transform: translateY(0); }
+    .msg-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .msg-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+    .msg-list::-webkit-scrollbar { width: 6px; }
+    .msg-list::-webkit-scrollbar-track { background: transparent; }
+    .msg-list::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 3px;
+    }
+    .msg-item {
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--blue-light);
+      animation: msgFadeIn 0.4s ease;
+    }
+    @keyframes msgFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .msg-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .msg-item-name {
+      font-weight: 700;
+      color: var(--blue-deep);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .msg-item-time {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .msg-item-text {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+      word-break: break-word;
+    }
+    .msg-empty {
+      text-align: center;
+      padding: 32px 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .msg-loading {
+      text-align: center;
+      padding: 24px;
+      color: var(--blue-primary);
+      font-size: 14px;
+    }
+    .msg-count {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .msg-load-more {
+      text-align: center;
+      padding: 14px;
+      margin-top: 8px;
+      color: var(--blue-primary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border-top: 1px dashed rgba(74, 144, 226, 0.3);
+      transition: background 0.2s;
+      border-radius: 0 0 12px 12px;
+    }
+    .msg-load-more:hover {
+      background: rgba(74, 144, 226, 0.08);
+    }
+
+    /* ===== 养奶茶猫小游戏 ===== */
+    .cat-game-board {
+      background: linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .cat-game-header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .cat-game-header h3 {
+      font-size: 22px;
+      color: var(--blue-deep);
+      font-weight: 800;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+    }
+    .cat-game-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .cat-game-avatar-wrap {
+      text-align: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .cat-game-avatar {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 28px;
+      padding: 12px;
+      box-shadow: 0 8px 28px rgba(59, 130, 246, 0.18);
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      animation: gameCatBounce 2.6s ease-in-out infinite;
+    }
+    @keyframes gameCatBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .cat-game-name {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--blue-deep);
+      text-align: center;
+      margin-top: 4px;
+    }
+    .cat-game-slogan {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.85);
+      border: 2px dashed rgba(59, 130, 246, 0.25);
+      border-radius: 16px;
+      padding: 8px 18px;
+      font-size: 14px;
+      color: var(--blue-primary);
+      font-weight: 700;
+      margin: 10px auto 0;
+      text-align: center;
+      max-width: 90%;
+    }
+    .cat-game-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .cat-game-stat {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.06);
+    }
+    .cat-game-stat-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    .cat-game-stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+    .cat-game-stat-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--blue-primary);
+      line-height: 1;
+    }
+    .cat-game-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(59, 130, 246, 0.12);
+      border-radius: 3px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .cat-game-bar-inner {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.4s ease, background 0.3s ease;
+    }
+    .cat-game-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .cat-game-group-label {
+      font-size: 13px;
+      color: var(--blue-deep);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .cat-game-actions {
+      display: grid;
+      gap: 10px;
+    }
+    .cat-game-actions-4 { grid-template-columns: repeat(4, 1fr); }
+    .cat-game-actions-2 { grid-template-columns: repeat(2, 1fr); }
+    .cat-game-actions-1 { grid-template-columns: 1fr; }
+    .cat-game-btn {
+      background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 4px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .cat-game-btn .icon { font-size: 22px; }
+    .cat-game-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35); }
+    .cat-game-btn:active { transform: translateY(0); }
+    .cat-game-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .cat-game-cmd {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 14px;
+      padding: 14px;
+      border: 2px dashed rgba(59, 130, 246, 0.2);
+      margin-bottom: 18px;
+    }
+    .cat-game-cmd-title {
+      font-size: 13px;
+      color: var(--blue-deep);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .cat-game-cmd-row {
+      display: flex;
+      gap: 8px;
+    }
+    .cat-game-cmd-input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 2px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      font-size: 14px;
+      outline: none;
+      background: #fff;
+      color: var(--text-dark);
+    }
+    .cat-game-cmd-input:focus { border-color: var(--blue-primary); }
+    .cat-game-cmd-btn {
+      background: var(--blue-primary);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0 16px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cat-game-cmd-btn:hover { background: var(--blue-deep); }
+    .cat-game-log {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 14px;
+      padding: 14px;
+      max-height: 220px;
+      overflow-y: auto;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+    .cat-game-log-title {
+      font-size: 14px;
+      color: var(--blue-deep);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .cat-game-log-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cat-game-log-item {
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.5;
+      padding: 6px 10px;
+      background: rgba(219, 234, 254, 0.5);
+      border-radius: 10px;
+    }
+    .cat-game-log-item .time {
+      color: var(--blue-primary);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .cat-game-log-item .gain { color: #2563EB; font-weight: 700; }
+    .cat-game-empty {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      padding: 20px;
+    }
+    .cat-game-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+    .cat-game-toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: rgba(30, 64, 175, 0.92);
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 300;
+      white-space: nowrap;
+      box-shadow: 0 8px 30px rgba(30, 64, 175, 0.35);
+    }
+    .cat-game-toast.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+    @media (max-width: 600px) {
+      .cat-game-board { padding: 18px 14px; }
+      .cat-game-avatar { width: 130px; height: 130px; }
+      .cat-game-stats { grid-template-columns: repeat(2, 1fr); }
+      .cat-game-actions-4 { grid-template-columns: repeat(2, 1fr); }
+      .cat-game-btn { padding: 10px 2px; font-size: 11px; }
+      .cat-game-btn .icon { font-size: 16px; }
+      .cat-game-name { font-size: 22px; }
+      .cat-game-cmd-row { flex-direction: column; }
+      .cat-game-cmd-btn { padding: 10px; }
+    }
+    .footer {
+      text-align: center;
+      padding: 32px 20px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .footer .heart { color: #EF4444; }
+
+    /* ===== 移动端适配 ===== */
+    @media (max-width: 600px) {
+      .nav-inner { padding: 10px 14px; }
+      .nav-logo { font-size: 17px; }
+      .nav-logo span { font-size: 13px; }
+      .nav-links a { font-size: 12px; padding: 6px 10px; }
+      .hero { height: 48vh; min-height: 320px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .cat-img { width: 60px; height: 60px; }
+      .container { padding: 20px 12px 100px; }
+      .section-title { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">⭐ 关于勇志 <span>YUSHI</span></div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">首页</a></li>
+        <li><a href="#messages">粉丝留言</a></li>
+        <li><a href="#cat-game">养奶茶猫</a></li>
+        <li><a href="#section2">官博·官抖</a></li>
+        <li><a href="#section3">演出合集</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 封面 -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">关于勇志</h1>
+      <p class="hero-subtitle">YUSHI · 得能勇志 · 유우시 · ユウシ</p>
+      <div class="hero-stars">⭐🐱🕺🍜🧋</div>
+    </div>
+  </section>
+
+  <!-- 主内容 -->
+  <div class="container">
+
+    <!-- 名字卡片 -->
+    <div class="name-card">
+      <h2>YUSHI</h2>
+      <p class="name-jp">得能勇志 · トクノウ ユウシ · 유우시</p>
+      <div class="name-tags">
+        <span>🐱 动物塑：猫</span>
+        <span>⭐ 官方emoji</span>
+        <span>🕺 主舞·领唱</span>
+      </div>
+    </div>
+
+    <!-- 基本信息卡 -->
+    <h2 class="section-title">📋 基本信息</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><span class="icon">👤</span> 个人档案</h3>
+        <div class="info-row"><span class="label">姓名</span><span class="value">YUSHI / 得能勇志</span></div>
+        <div class="info-row"><span class="label">生日</span><span class="value">2004.04.05</span></div>
+        <div class="info-row"><span class="label">星座</span><span class="value">♈ 白羊座</span></div>
+        <div class="info-row"><span class="label">国籍</span><span class="value">Japanese 🇯🇵</span></div>
+        <div class="info-row"><span class="label">出生地</span><span class="value">Tokyo</span></div>
+        <div class="info-row"><span class="label">昵称</span><span class="value">ushi</span></div>
+        <div class="info-row"><span class="label">MBTI</span><span class="value">ISFJ→ESFJ→ISFJ</span></div>
+      </div>
+      <div class="info-card">
+        <h3><span class="icon">💼</span> 官方定位</h3>
+        <div class="info-row"><span class="label">组合</span><span class="value">NCT WISH</span></div>
+        <div class="info-row"><span class="label">定位</span><span class="value">主舞、领唱</span></div>
+        <div class="info-row"><span class="label">动物塑</span><span class="value">🐱 猫</span></div>
+        <div class="info-row"><span class="label">官方emoji</span><span class="value">⭐</span></div>
+        <div class="info-row"><span class="label">所属公司</span><span class="value">SM Entertainment</span></div>
+        <div class="info-row"><span class="label">练习时长</span><span class="value">六年（2018-2024）</span></div>
+      </div>
+    </div>
+
+    <!-- 性格与兴趣 -->
+    <h2 class="section-title">🌟 性格与兴趣</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><span class="icon">💫</span> 性格特点</h3>
+        <div class="info-row"><span class="label">性格</span><span class="value">可爱的性格</span></div>
+        <div class="info-row"><span class="label">特质</span><span class="value">安静、冷静且非常害羞的 shy boy</span></div>
+        <div class="info-row"><span class="label">内心</span><span class="value">热心、善良、耐心</span></div>
+        <div class="info-row"><span class="label">社交</span><span class="value">喜欢和朋友在一起玩</span></div>
+        <div class="info-row"><span class="label">座右铭</span><span class="value">因果报应→幸福地生活</span></div>
+      </div>
+      <div class="info-card">
+        <h3><span class="icon">🎮</span> 兴趣爱好</h3>
+        <div class="info-row"><span class="label">运动</span><span class="value">⚽ 足球（最爱的运动）</span></div>
+        <div class="info-row"><span class="label">游戏</span><span class="value">🎮 任天堂（塞尔达传说）</span></div>
+        <div class="info-row"><span class="label">游戏</span><span class="value">⛏️ 我的世界</span></div>
+        <div class="info-row"><span class="label">最珍惜</span><span class="value">任天堂 Switch</span></div>
+        <div class="info-row"><span class="label">习惯</span><span class="value">睡觉之前吃夜宵</span></div>
+      </div>
+      <div class="info-card">
+        <h3><span class="icon">❤️</span> 喜好</h3>
+        <div class="info-row"><span class="label">看电影</span><span class="value">🍿 喜欢</span></div>
+        <div class="info-row"><span class="label">跳舞</span><span class="value">🕺 主舞</span></div>
+        <div class="info-row"><span class="label">吃辣</span><span class="value">🌶️ 喜欢</span></div>
+        <div class="info-row"><span class="label">生存的意义</span><span class="value">跳舞</span></div>
+      </div>
+    </div>
+
+    <!-- 偏好 -->
+    <h2 class="section-title">🎨 个人偏好</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><span class="icon">🎵</span> 喜好详情</h3>
+        <div class="info-row"><span class="label">最喜欢的颜色</span><span class="value">蓝色 & 白色</span></div>
+        <div class="info-row"><span class="label">最爱的词语</span><span class="value">爱</span></div>
+        <div class="info-row"><span class="label">最爱的歌曲</span><span class="value">Smooth Criminal - MJ</span></div>
+        <div class="info-row"><span class="label">最想拥有的超能力</span><span class="value">飞行</span></div>
+        <div class="info-row"><span class="label">最爱的食物</span><span class="value">🍜 拉面 · 🧋 贡茶</span></div>
+      </div>
+      <div class="info-card">
+        <h3><span class="icon">🏅</span> 梦想与榜样</h3>
+        <div class="info-row"><span class="label">梦想契机</span><span class="value">看到EXO前辈和Kpop艺人后开始学舞</span></div>
+        <div class="info-row"><span class="label">榜样</span><span class="value">EXO 的 KAI 前辈</span></div>
+        <div class="info-row"><span class="label">一定要实现的梦</span><span class="value">🌍 世界巡演</span></div>
+        <div class="info-row"><span class="label">如果不做音乐</span><span class="value">会做足球运动员</span></div>
+      </div>
+    </div>
+
+    <!-- 引言 -->
+    <div class="quote-card">
+      <div class="quote-mark">💬</div>
+      <p>因果报应 → 幸福地生活</p>
+      <span class="quote-sub">— 勇志的座右铭</span>
+    </div>
+
+    <!-- 出道历程 -->
+    <h2 class="section-title">📅 出道历程</h2>
+    <div class="info-card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">前 Stardust Promotion 时期</div>
+          <div class="timeline-text">Stardust Promotion 旗下 EDAMAME BEANS（EbiDAN）成员</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2021.02.05</div>
+          <div class="timeline-text">smtraining 发布 SMNBG 成员"Y"</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2022.10.15</div>
+          <div class="timeline-text">smtraining 官方 IG 发布"Y（from Tokyo）"</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023.06.28</div>
+          <div class="timeline-text">SMROOKIES 公布新人 YUSHI 短片</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2023.06.30</div>
+          <div class="timeline-text">确认 YUSHI 为 NCT TOKYO 成员之一</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024.02.21</div>
+          <div class="timeline-text">YUSHI 作为 NCT WISH 成员在东京巨蛋舞台上出道 ⭐</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMROOKIES 评价 -->
+    <h2 class="section-title">📝 SMROOKIES 评价</h2>
+    <div class="info-card">
+      <p style="font-size:15px; color:var(--text-dark); line-height:1.8;">
+        "YUSHI（2004年，日本）是一位新人，拥有独特的声音和迷人的面孔，有出色的舞蹈技巧。"
+      </p>
+    </div>
+
+    <!-- 标签云 -->
+    <h2 class="section-title">🏷️ 关键词</h2>
+    <div class="info-card">
+      <div class="tag-cloud">
+        <span>#主舞</span>
+        <span>#领唱</span>
+        <span>#shy boy</span>
+        <span>#猫猫塑</span>
+        <span>#足球少年</span>
+        <span>#任天堂</span>
+        <span>#塞尔达</span>
+        <span>#拉面</span>
+        <span>#贡茶</span>
+        <span>#蓝色</span>
+        <span>#ISFJ</span>
+        <span>#世界巡演</span>
+        <span>#NCT WISH</span>
+        <span>#SM六年练习生</span>
+      </div>
+    </div>
+
+    <!-- 官博·官抖 -->
+    <h2 class="section-title" id="section2">📱 官博·官抖</h2>
+    <p class="weibo-section-desc">
+      勇志官方微博 & 抖音内容合集
+    </p>
+
+    <h3 class="subsection-title">📸 官博单人照</h3>
+    <p class="weibo-section-desc">
+      按时间倒序排列 · 点击卡片跳转微博查看原图
+    </p>
+
+    <div id="weibo-gallery-container"></div>
+
+    <h3 class="dy-subsection-title">🎬 官方单人抖</h3>
+    <p class="dy-section-desc">
+      按时间倒序排列 · 点击跳转抖音观看视频 · 跳转不了点「复制」在抖音App打开
+    </p>
+    <div id="douyin-gallery-container"></div>
+
+    <!-- 演出合集 -->
+    <h2 class="section-title" id="section3" style="color: var(--purple-deep);">🎪 演出合集</h2>
+    <p class="tour-section-desc">
+      勇志巡演记录 · 幕后彩排 · 点击链接跳转查看
+    </p>
+
+    <!-- LOG IN 日巡/亚巡 -->
+    <div class="tour-banner">
+      <span class="tour-banner-label">LOG IN</span>
+      <span class="tour-banner-name">日巡 · 亚巡</span>
+    </div>
+    <div id="login-gallery-container"></div>
+
+    <!-- 一巡 -->
+    <div class="tour-banner">
+      <span class="tour-banner-label">一巡</span>
+      <span class="tour-banner-name">INTO THE WISH : Our WISH</span>
+    </div>
+    <div id="tour1-gallery-container"></div>
+
+    <!-- 二巡 -->
+    <div class="tour-banner">
+      <span class="tour-banner-label">二巡</span>
+      <span class="tour-banner-name">敬请期待</span>
+    </div>
+    <div class="tour-empty-note">🎭 二巡数据即将上线，敬请期待</div>
+
+    <!-- 粉丝留言 -->
+    <h2 class="section-title" id="messages">💌 粉丝留言</h2>
+    <div class="msg-board">
+      <div class="msg-form">
+        <div class="msg-form-row">
+          <input type="text" class="msg-input-name" id="msgName" placeholder="输入昵称（留空则匿名）" maxlength="20">
+        </div>
+        <textarea class="msg-textarea" id="msgText" placeholder="写下对勇志的鼓励、愿望或想说的话...（最多50字）" maxlength="50"></textarea>
+        <div class="msg-submit-row">
+          <label class="msg-anon-check">
+            <input type="checkbox" id="msgAnon">
+            <span>匿名留言</span>
+          </label>
+          <button class="msg-submit-btn" id="msgSubmit" onclick="submitMessage()">留言 ✉</button>
+        </div>
+      </div>
+      <div class="msg-count" id="msgCount"></div>
+      <div class="msg-list" id="msgList">
+        <div class="msg-loading">留言加载中...</div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+      <p>关于勇志 YUSHI ⭐ | 粉丝制作站点</p>
+      <p>点左下角的小猫咪会有惊喜哦 🐱</p>
+      <p style="margin-top:8px;">Made with <span class="heart">❤</span> for YUSHI</p>
+    </div>
+
+  </div>
+
+  <!-- 养奶茶猫小游戏 -->
+  <section id="cat-game" style="padding: 32px 16px 120px; background: transparent;">
+    <div class="container" style="padding-top:0; padding-bottom:0;">
+      <h2 class="section-title">🧋 养奶茶猫</h2>
+      <div class="cat-game-board">
+        <div class="cat-game-header">
+          <h3>养一只奶茶猫</h3>
+          <p>每天照顾它，和它一起陪伴勇志吧</p>
+        </div>
+
+        <div class="cat-game-avatar-wrap">
+          <img src="assets/milktea-cat.png" class="cat-game-avatar" alt="奶茶猫" id="gameCatImg">
+          <div class="cat-game-name">奶茶猫</div>
+          <div class="cat-game-slogan" id="catSlogan">你再陪我久一点嘛～</div>
+        </div>
+
+        <div class="cat-game-stats">
+          <div class="cat-game-stat">
+            <div class="cat-game-stat-icon">🍞</div>
+            <div class="cat-game-stat-label">饱食</div>
+            <div class="cat-game-stat-value" id="statHunger">80</div>
+            <div class="cat-game-bar"><div class="cat-game-bar-inner" id="barHunger" style="width:80%"></div></div>
+          </div>
+          <div class="cat-game-stat">
+            <div class="cat-game-stat-icon">🥤</div>
+            <div class="cat-game-stat-label">口渴</div>
+            <div class="cat-game-stat-value" id="statThirst">80</div>
+            <div class="cat-game-bar"><div class="cat-game-bar-inner" id="barThirst" style="width:80%"></div></div>
+          </div>
+          <div class="cat-game-stat">
+            <div class="cat-game-stat-icon">🛁</div>
+            <div class="cat-game-stat-label">清洁</div>
+            <div class="cat-game-stat-value" id="statClean">80</div>
+            <div class="cat-game-bar"><div class="cat-game-bar-inner" id="barClean" style="width:80%"></div></div>
+          </div>
+          <div class="cat-game-stat">
+            <div class="cat-game-stat-icon">💙</div>
+            <div class="cat-game-stat-label">心情</div>
+            <div class="cat-game-stat-value" id="statMood">80</div>
+            <div class="cat-game-bar"><div class="cat-game-bar-inner" id="barMood" style="width:80%"></div></div>
+          </div>
+          <div class="cat-game-stat">
+            <div class="cat-game-stat-icon">🤝</div>
+            <div class="cat-game-stat-label">亲密</div>
+            <div class="cat-game-stat-value" id="statIntimacy">50</div>
+            <div class="cat-game-bar"><div class="cat-game-bar-inner" id="barIntimacy" style="width:50%"></div></div>
+          </div>
+        </div>
+
+        <div class="cat-game-groups">
+          <div class="cat-game-group">
+            <div class="cat-game-group-label">🍜 投喂食物</div>
+            <div class="cat-game-actions cat-game-actions-4">
+              <button class="cat-game-btn" onclick="gameAction('ramen')">
+                <span class="icon">🍜</span><span>拉面</span>
+              </button>
+              <button class="cat-game-btn" onclick="gameAction('cake')">
+                <span class="icon">🍰</span><span>蛋糕</span>
+              </button>
+              <button class="cat-game-btn" onclick="gameAction('sushi')">
+                <span class="icon">🍣</span><span>寿司</span>
+              </button>
+              <button class="cat-game-btn" onclick="gameAction('xiaolongbao')">
+                <span class="icon">🥟</span><span>小笼包</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="cat-game-group">
+            <div class="cat-game-group-label">🥤 喝饮料</div>
+            <div class="cat-game-actions cat-game-actions-2">
+              <button class="cat-game-btn" onclick="gameAction('water')">
+                <span class="icon">💧</span><span>水</span>
+              </button>
+              <button class="cat-game-btn" onclick="gameAction('milktea')">
+                <span class="icon">🧋</span><span>奶茶</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="cat-game-group">
+            <div class="cat-game-group-label">💙 陪伴</div>
+            <div class="cat-game-actions cat-game-actions-2">
+              <button class="cat-game-btn" onclick="gameAction('pat')">
+                <span class="icon">🖐️</span><span>摸摸头</span>
+              </button>
+              <button class="cat-game-btn" onclick="gameAction('playgame')">
+                <span class="icon">🎮</span><span>打游戏</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="cat-game-group">
+            <div class="cat-game-group-label">🤗 互动</div>
+            <div class="cat-game-actions cat-game-actions-1">
+              <button class="cat-game-btn" onclick="gameAction('meet')">
+                <span class="icon">🤗</span><span>见面</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-game-cmd">
+          <div class="cat-game-cmd-title">🔑 互动口令</div>
+          <div class="cat-game-cmd-row">
+            <input type="text" class="cat-game-cmd-input" id="cmdInput" placeholder="输入口令，例如：奶茶猫贴贴" maxlength="30">
+            <button class="cat-game-cmd-btn" onclick="useCommand()">使用</button>
+          </div>
+        </div>
+
+        <div class="cat-game-log">
+          <div class="cat-game-log-title">互动记录</div>
+          <div class="cat-game-log-list" id="gameLog">
+            <div class="cat-game-empty">还没有互动记录，快去陪陪奶茶猫吧～</div>
+          </div>
+        </div>
+
+        <p class="cat-game-hint">
+          🍜 投喂拉面饱食加最多；💧 喝水比奶茶更解渴；🎮 打游戏比摸摸头加更多心情与亲密。<br>
+          💡 输入「温柔安抚奶茶小猫」「与奶茶猫慢慢相处」小幅提升属性；<br>
+          输入「可以长久陪着奶茶猫」会获得大额亲密值奖励；<br>
+          备用短口令：「奶茶猫贴贴」「守护奶茶小猫」。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 奶茶猫 -->
+  <div class="cat-container" id="cat" onclick="showEncourage()">
+    <div class="cat-bubble" id="catBubble"></div>
+    <img src="assets/cat.jpg" class="cat-img" alt="奶茶猫">
+    <span class="cat-hint">点我</span>
+  </div>
+
+  <script>
+    // 鼓励话语
+    const messages = [
+      "勇志今天也要加油哦！⭐",
+      "保持热爱，勇往直前！🐱",
+      "因果报应→幸福地生活 💙",
+      "跳舞的少年，永远闪闪发光！🕺",
+      "今天也要幸福地生活哦！💙",
+      "你的努力终会被看见！💪",
+      "世界巡演的梦想一定会实现！🌍",
+      "像勇志一样，勇敢追逐梦想吧！⭐",
+      "每一天都是新的舞台！✨",
+      "用爱去生活，用舞去表达！💙",
+      "猫猫说：你是最棒的！🐱",
+      "勇志的笑容是最美的风景！😊",
+      "脚踏实地，仰望星空⭐",
+      "蓝白色的少年，闪闪发光！💙",
+      "今天也要吃拉面🍜和贡茶🧋哦！"
+    ];
+
+    let lastMsg = -1;
+    function showEncourage() {
+      const bubble = document.getElementById("catBubble");
+      let idx;
+      do {
+        idx = Math.floor(Math.random() * messages.length);
+      } while (idx === lastMsg && messages.length > 1);
+      lastMsg = idx;
+      bubble.textContent = messages[idx];
+      bubble.classList.add("show");
+      clearTimeout(window._catTimer);
+      window._catTimer = setTimeout(() => {
+        bubble.classList.remove("show");
+      }, 3500);
+    }
+
+    // ===== 官博单人照数据 & 渲染 =====
+    const WEIBO_DATA = [
+      { y: 2026, m: 7, d: 24, links: ["https://weibo.com/7895044498/5324313482763163","https://weibo.com/7895044498/5324222696260953"] },
+      { y: 2026, m: 7, d: 23, links: ["https://weibo.com/7895044498/5323908246930015"] },
+      { y: 2026, m: 7, d: 20, links: ["https://weibo.com/7895044498/5322803192533130","https://weibo.com/7895044498/5322803782094114"] },
+      { y: 2026, m: 7, d: 17, links: ["https://weibo.com/7895044498/5321680612230828","https://weibo.com/7895044498/5321679356302214"] },
+      { y: 2026, m: 7, d: 15, links: ["https://weibo.com/7895044498/5321022519907286"] },
+      { y: 2026, m: 7, d: 14, links: ["https://weibo.com/7895044498/5320654145460083"] },
+      { y: 2026, m: 7, d: 13, links: ["https://weibo.com/7895044498/5320192012058716"] },
+      { y: 2026, m: 7, d: 2, links: ["https://weibo.com/7895044498/5316368464348296"] },
+      { y: 2026, m: 6, d: 28, links: ["https://weibo.com/7895044498/5314558667260687"] },
+      { y: 2026, m: 6, d: 27, links: ["https://weibo.com/7895044498/5314522613286838","https://weibo.com/7895044498/5314365892857591"] },
+      { y: 2026, m: 6, d: 26, links: ["https://weibo.com/7895044498/5314167529538318"] },
+      { y: 2026, m: 6, d: 24, links: ["https://weibo.com/7895044498/5313460623901538"] },
+      { y: 2026, m: 6, d: 19, links: ["https://weibo.com/7895044498/5311527940786281"] },
+      { y: 2026, m: 6, d: 18, links: ["https://weibo.com/7895044498/5310953693384046"] },
+      { y: 2026, m: 6, d: 11, links: ["https://weibo.com/7895044498/5308758702163160"] },
+      { y: 2026, m: 6, d: 9, links: ["https://weibo.com/7895044498/5307913993455382"] },
+      { y: 2026, m: 6, d: 3, links: ["https://weibo.com/7895044498/5305738048310066"] },
+      { y: 2026, m: 5, d: 26, links: ["https://weibo.com/7895044498/5302887769179428","https://weibo.com/7895044498/5302882162706220","https://weibo.com/7895044498/5302880152322366","https://weibo.com/7895044498/5302803625152383"] },
+      { y: 2026, m: 5, d: 23, links: ["https://weibo.com/7895044498/5301694411573724"] },
+      { y: 2026, m: 5, d: 22, links: ["https://weibo.com/7895044498/5301360573813713"] },
+      { y: 2026, m: 5, d: 20, links: ["https://weibo.com/7895044498/5300707676389524"] },
+      { y: 2026, m: 5, d: 16, links: ["https://weibo.com/7895044498/5299233524813631"] },
+      { y: 2026, m: 5, d: 13, links: ["https://weibo.com/7895044498/5297905718002708"] },
+      { y: 2026, m: 5, d: 12, links: ["https://weibo.com/7895044498/5299233524813631"] },
+      { y: 2026, m: 5, d: 11, links: ["https://weibo.com/5838349719/5297405052324195"] },
+      { y: 2026, m: 5, d: 1, links: ["https://weibo.com/5838349719/5293719130738858","https://weibo.com/5838349719/5293719092986654"] },
+      { y: 2026, m: 4, d: 29, links: ["https://weibo.com/7895044498/5293121916897316"] },
+      { y: 2026, m: 4, d: 28, links: ["https://weibo.com/7895044498/5292712057901891"] },
+      { y: 2026, m: 4, d: 24, links: ["https://weibo.com/7895044498/5291184752427542"] },
+      { y: 2026, m: 4, d: 23, links: ["https://weibo.com/7895044498/5290997003325537"] },
+      { y: 2026, m: 4, d: 18, links: ["https://weibo.com/7895044498/5289024459901781"] },
+      { y: 2026, m: 4, d: 15, links: ["https://weibo.com/7895044498/5288103238443673","https://weibo.com/7895044498/5288033299729347"] },
+      { y: 2026, m: 4, d: 14, links: ["https://weibo.com/7895044498/5287681459486766","https://weibo.com/7895044498/5287657866266557"] },
+      { y: 2026, m: 4, d: 12, links: ["https://weibo.com/7895044498/5286939915191276"] },
+      { y: 2026, m: 4, d: 11, links: ["https://weibo.com/7895044498/5286634079916382","https://weibo.com/7895044498/5286633508963051","https://weibo.com/7895044498/5286629080043520","https://weibo.com/7895044498/5286625263488042","https://weibo.com/7895044498/5286624290147858","https://weibo.com/7895044498/5286624116086554","https://weibo.com/7895044498/5286615373320884"] },
+      { y: 2026, m: 4, d: 10, links: ["https://weibo.com/7895044498/5286244584002034","https://weibo.com/7895044498/5286244435368850","https://weibo.com/7895044498/5286243935984545","https://weibo.com/7895044498/5286243643428905","https://weibo.com/7895044498/5286230921059061","https://weibo.com/7895044498/5286230079571004"] },
+      { y: 2026, m: 4, d: 7, links: ["https://weibo.com/7895044498/5285203599687896","https://weibo.com/7895044498/5285203581076463"] },
+      { y: 2026, m: 4, d: 6, links: ["https://weibo.com/7895044498/5284840953881462","https://weibo.com/7895044498/5284840926874751","https://weibo.com/7895044498/5284493453693406"] },
+      { y: 2026, m: 4, d: 4, links: ["https://weibo.com/7895044498/5284118968405379","https://weibo.com/7895044498/5284118680306955","https://weibo.com/7895044498/5284118275555639","https://weibo.com/7895044498/5284117646153802","https://weibo.com/7895044498/5284116905852958"] },
+      { y: 2026, m: 4, d: 3, links: ["https://weibo.com/7895044498/5283670386543208"] },
+      { y: 2026, m: 3, d: 31, links: ["https://weibo.com/7895044498/5282677307476784","https://weibo.com/7895044498/5282675319638969","https://weibo.com/7895044498/5282670524498627"] },
+      { y: 2026, m: 3, d: 30, links: ["https://weibo.com/7895044498/5282303917424765"] },
+      { y: 2026, m: 3, d: 28, links: ["https://weibo.com/7895044498/5281412471327664"] },
+      { y: 2026, m: 3, d: 27, links: ["https://weibo.com/7895044498/5281217813686161"] },
+      { y: 2026, m: 3, d: 26, links: ["https://weibo.com/7895044498/5280665768821236"] },
+      { y: 2026, m: 3, d: 8, links: ["https://weibo.com/7895044498/5274166578123136"] },
+      { y: 2026, m: 3, d: 2, links: ["https://weibo.com/7895044498/5271978598469518","https://weibo.com/7895044498/5271974705365649"] },
+      { y: 2026, m: 2, d: 27, links: ["https://weibo.com/7895044498/5271012225584614"] },
+      { y: 2026, m: 2, d: 20, links: ["https://weibo.com/7895044498/5268509630137644"] },
+      { y: 2026, m: 2, d: 18, links: ["https://weibo.com/7895044498/5267625597995715","https://weibo.com/7895044498/5267624755728494"] },
+      { y: 2026, m: 2, d: 16, links: ["https://weibo.com/7895044498/5266927362770163"] },
+      { y: 2026, m: 2, d: 11, links: ["https://weibo.com/7895044498/5265156915597478"] },
+      { y: 2026, m: 2, d: 10, links: ["https://weibo.com/7895044498/5264798661217615"] },
+      { y: 2026, m: 2, d: 2, links: ["https://weibo.com/7895044498/5261861021811627"] },
+      { y: 2026, m: 2, d: 1, links: ["https://weibo.com/7895044498/5261628548581650"] },
+      { y: 2026, m: 1, d: 31, links: ["https://weibo.com/7895044498/5261284662576947","https://weibo.com/7895044498/5261116290632232"] },
+      { y: 2026, m: 1, d: 27, links: ["https://weibo.com/7895044498/5259660556765076"] },
+      { y: 2026, m: 1, d: 26, links: ["https://weibo.com/7895044498/5259295717329355"] },
+      { y: 2026, m: 1, d: 25, links: ["https://weibo.com/7895044498/5258917619962433"] },
+      { y: 2026, m: 1, d: 16, links: ["https://weibo.com/7895044498/5255777113867338","https://weibo.com/7895044498/5255774209311278"] },
+      { y: 2026, m: 1, d: 4, links: ["https://weibo.com/7895044498/5251470590219937"] },
+      { y: 2026, m: 1, d: 1, links: ["https://weibo.com/7895044498/5250234592527801","https://weibo.com/7895044498/5250083761429835"] },
+      { y: 2025, m: 12, d: 31, links: ["https://weibo.com/7895044498/5250037950711020"] },
+      { y: 2025, m: 12, d: 27, links: ["https://weibo.com/7895044498/5248486647794874"] },
+      { y: 2025, m: 12, d: 26, links: ["https://weibo.com/7895044498/5248086597174703"] },
+      { y: 2025, m: 12, d: 25, links: ["https://weibo.com/7895044498/5247884488348463"] },
+      { y: 2025, m: 12, d: 24, links: ["https://weibo.com/7895044498/5247525422367953"] },
+      { y: 2025, m: 12, d: 21, links: ["https://weibo.com/7895044498/5246297477219978","https://weibo.com/7895044498/5246235792902914"] },
+      { y: 2025, m: 12, d: 14, links: ["https://weibo.com/7895044498/5243881299124874"] },
+      { y: 2025, m: 12, d: 11, links: ["https://weibo.com/7895044498/5242747230362087","https://weibo.com/7895044498/5242746346406083"] },
+      { y: 2025, m: 11, d: 30, links: ["https://weibo.com/7895044498/5238758089692239"] },
+      { y: 2025, m: 11, d: 10, links: ["https://weibo.com/7895044498/5231495996245797"] },
+      { y: 2025, m: 11, d: 6, links: ["https://weibo.com/7895044498/5229901289883488"] },
+      { y: 2025, m: 11, d: 5, links: ["https://weibo.com/7895044498/5229670326862800"] },
+      { y: 2025, m: 11, d: 4, links: ["https://weibo.com/7895044498/5229277685747138","https://weibo.com/7895044498/5229276960130693"] },
+      { y: 2025, m: 10, d: 30, links: ["https://weibo.com/7895044498/5227538341170989"] },
+      { y: 2025, m: 10, d: 18, links: ["https://weibo.com/7895044498/5223064675025685"] },
+      { y: 2025, m: 10, d: 13, links: ["https://weibo.com/7895044498/5221277625221243"] },
+      { y: 2025, m: 10, d: 5, links: ["https://weibo.com/7895044498/5218408703985424"] },
+      { y: 2025, m: 9, d: 17, links: ["https://weibo.com/7895044498/5211941649518721","https://weibo.com/7895044498/5211888927378127"] },
+      { y: 2025, m: 9, d: 14, links: ["https://weibo.com/7895044498/5210847498472205","https://weibo.com/7895044498/5210846586474120"] },
+      { y: 2025, m: 9, d: 13, links: ["https://weibo.com/7895044498/5210484749636393","https://weibo.com/7895044498/5210485382973218"] },
+      { y: 2025, m: 9, d: 8, links: ["https://weibo.com/7895044498/5208599278125349"] },
+      { y: 2025, m: 9, d: 6, links: ["https://weibo.com/7895044498/5207983860747316","https://weibo.com/7895044498/5207952589589730","https://weibo.com/7895044498/5207852459229663"] },
+      { y: 2025, m: 9, d: 4, links: ["https://weibo.com/7895044498/5207236521756031","https://weibo.com/7895044498/5207153738254992","https://weibo.com/7895044498/5207149982778323"] },
+      { y: 2025, m: 9, d: 1, links: ["https://weibo.com/7895044498/5206169014769179"] },
+      { y: 2025, m: 8, d: 28, links: ["https://weibo.com/7895044498/5204753207787677","https://weibo.com/7895044498/5204716767939419","https://weibo.com/7895044498/5204706453883143","https://weibo.com/7895044498/5204688988803629","https://weibo.com/7895044498/5204688536340777","https://weibo.com/7895044498/5204685008669652"] },
+      { y: 2025, m: 8, d: 27, links: ["https://weibo.com/7895044498/5204345431789341","https://weibo.com/7895044498/5204343745676377","https://weibo.com/7895044498/5204336177056722","https://weibo.com/7895044498/5204273975528406"] },
+      { y: 2025, m: 8, d: 24, links: ["https://weibo.com/7895044498/5203236986558094"] },
+      { y: 2025, m: 8, d: 22, links: ["https://weibo.com/7895044498/5202548660375228"] },
+      { y: 2025, m: 8, d: 19, links: ["https://weibo.com/7895044498/5201491340034131"] },
+      { y: 2025, m: 8, d: 17, links: ["https://weibo.com/7895044498/5200767301980028","https://weibo.com/7895044498/5200717503268335","https://weibo.com/7895044498/5200716652348654","https://weibo.com/7895044498/5200714688627908","https://weibo.com/7895044498/5200713905080809"] },
+      { y: 2025, m: 8, d: 16, links: ["https://weibo.com/7895044498/5200375036512180"] },
+      { y: 2025, m: 8, d: 14, links: ["https://weibo.com/7895044498/5199647753898882"] },
+      { y: 2025, m: 8, d: 12, links: ["https://weibo.com/7895044498/5198925763711562"] },
+      { y: 2025, m: 8, d: 11, links: ["https://weibo.com/7895044498/5198565097872607"] },
+      { y: 2025, m: 8, d: 10, links: ["https://weibo.com/7895044498/5198205474314972"] },
+      { y: 2025, m: 8, d: 9, links: ["https://weibo.com/7895044498/5197867375659884"] },
+      { y: 2025, m: 8, d: 8, links: ["https://weibo.com/7895044498/5197505357682674","https://weibo.com/7895044498/5197396755876447","https://weibo.com/7895044498/5197396046252893","https://weibo.com/7895044498/5197395795118663"] },
+      { y: 2025, m: 8, d: 6, links: ["https://weibo.com/7895044498/5196762614337198"] },
+      { y: 2025, m: 8, d: 3, links: ["https://weibo.com/7895044498/5195636544898544"] },
+      { y: 2025, m: 8, d: 2, links: ["https://weibo.com/7895044498/5195299481977290","https://weibo.com/7895044498/5195188764413756"] },
+      { y: 2025, m: 8, d: 1, links: ["https://weibo.com/7895044498/5194932966397393"] },
+      { y: 2025, m: 7, d: 27, links: ["https://weibo.com/7895044498/5193052016610012","https://weibo.com/7895044498/5193051698105617"] },
+      { y: 2025, m: 7, d: 23, links: ["https://weibo.com/7895044498/5191693475515248"] },
+      { y: 2025, m: 7, d: 22, links: ["https://weibo.com/7895044498/5191301051974782"] },
+      { y: 2025, m: 7, d: 15, links: ["https://weibo.com/7895044498/5188660233768282"] },
+      { y: 2025, m: 6, d: 24, links: ["https://weibo.com/7895044498/5181201505587655","https://weibo.com/7895044498/5181200890070645"] },
+      { y: 2025, m: 6, d: 22, links: ["https://weibo.com/7895044498/5180388146416745","https://weibo.com/7895044498/5180324741120471"] },
+      { y: 2025, m: 6, d: 21, links: ["https://weibo.com/7895044498/5180113244656089"] },
+      { y: 2025, m: 6, d: 15, links: ["https://weibo.com/7895044498/5177800698626256"] },
+      { y: 2025, m: 5, d: 30, links: ["https://weibo.com/7895044498/5172112894988651"] },
+      { y: 2025, m: 5, d: 25, links: ["https://weibo.com/7895044498/5170300103695801","https://weibo.com/7895044498/5170298862438654"] },
+      { y: 2025, m: 5, d: 20, links: ["https://weibo.com/7895044498/5168383708365582","https://weibo.com/7895044498/5168366865351384"] },
+      { y: 2025, m: 5, d: 18, links: ["https://weibo.com/7895044498/5167684729177834","https://weibo.com/7895044498/5167684149839191"] },
+      { y: 2025, m: 5, d: 17, links: ["https://weibo.com/7895044498/5167439841068724"] },
+      { y: 2025, m: 5, d: 16, links: ["https://weibo.com/7895044498/5167037932377302"] },
+      { y: 2025, m: 5, d: 15, links: ["https://weibo.com/7895044498/5166636906584602","https://weibo.com/7895044498/5166635348138235"] },
+      { y: 2025, m: 5, d: 14, links: ["https://weibo.com/7895044498/5166335773644581","https://weibo.com/7895044498/5166331470809095"] },
+      { y: 2025, m: 5, d: 8, links: ["https://weibo.com/7895044498/5164093485089435","https://weibo.com/7895044498/5164092647538960"] },
+      { y: 2025, m: 5, d: 7, links: ["https://weibo.com/7895044498/5163703579969612","https://weibo.com/7895044498/5163701599733325","https://weibo.com/7895044498/5163697791305879"] },
+      { y: 2025, m: 5, d: 1, links: ["https://weibo.com/7895044498/5161608163367329"] },
+      { y: 2025, m: 4, d: 30, links: ["https://weibo.com/7895044498/5161152574652834","https://weibo.com/7895044498/5161149198505156"] },
+      { y: 2025, m: 4, d: 20, links: ["https://weibo.com/7895044498/5157617367260732","https://weibo.com/7895044498/5157614456148648"] },
+      { y: 2025, m: 4, d: 17, links: ["https://weibo.com/7895044498/5156544518816286","https://weibo.com/7895044498/5156515787835687"] },
+      { y: 2025, m: 4, d: 11, links: ["https://weibo.com/7895044498/5154381130113647","https://weibo.com/7895044498/5154352310517836","https://weibo.com/7895044498/5154352122567466"] },
+      { y: 2025, m: 4, d: 10, links: ["https://weibo.com/7895044498/5154018759016932"] },
+      { y: 2025, m: 4, d: 5, links: ["https://weibo.com/7895044498/5152206753629035","https://weibo.com/7895044498/5152086775566037","https://weibo.com/7895044498/5152083205686670","https://weibo.com/7895044498/5152082966876589","https://weibo.com/7895044498/5151859729503118","https://weibo.com/7895044498/5151859719803013","https://weibo.com/7895044498/5151859712462238","https://weibo.com/7895044498/5151859704071755","https://weibo.com/7895044498/5151859698303749"] },
+      { y: 2025, m: 4, d: 1, links: ["https://weibo.com/7895044498/5150580440566330","https://weibo.com/7895044498/5150576913683283","https://weibo.com/7895044498/5150411653645800"] },
+      { y: 2025, m: 3, d: 31, links: ["https://weibo.com/7895044498/5150402527626766","https://weibo.com/7895044498/5150397099147826","https://weibo.com/7895044498/5150397041219819","https://weibo.com/7895044498/5150396969394179","https://weibo.com/7895044498/5150394784678090","https://weibo.com/7895044498/5150032995029924","https://weibo.com/7895044498/5150006568554036"] },
+      { y: 2025, m: 3, d: 29, links: ["https://weibo.com/7895044498/5149670122198125","https://weibo.com/7895044498/5149656439325332","https://weibo.com/7895044498/5149638820365001","https://weibo.com/7895044498/5149629834593131","https://weibo.com/7895044498/5149603721909307"] },
+      { y: 2025, m: 2, d: 27, links: ["https://weibo.com/7895044498/5138718626152672","https://weibo.com/7895044498/5138687532994027"] },
+      { y: 2025, m: 2, d: 24, links: ["https://weibo.com/7895044498/5137683437328743"] },
+      { y: 2025, m: 2, d: 21, links: ["https://weibo.com/7895044498/5136521503708082","https://weibo.com/7895044498/5136520702856182"] },
+      { y: 2025, m: 2, d: 20, links: ["https://weibo.com/7895044498/5136176012855290"] },
+      { y: 2025, m: 2, d: 7, links: ["https://weibo.com/7895044498/5131405137284830"] },
+      { y: 2025, m: 1, d: 27, links: ["https://weibo.com/7895044498/5127478048459512"] },
+      { y: 2025, m: 1, d: 25, links: ["https://weibo.com/7895044498/5126704799158897"] },
+      { y: 2025, m: 1, d: 20, links: ["https://weibo.com/7895044498/5124870038618872"] },
+      { y: 2025, m: 1, d: 15, links: ["https://weibo.com/2533607591/5123215626079632"] },
+      { y: 2024, m: 12, d: 24, links: ["https://weibo.com/7895044498/5115244760535452","https://weibo.com/7895044498/5115229306361601"] },
+      { y: 2024, m: 12, d: 17, links: ["https://weibo.com/7895044498/5112673910132150","https://weibo.com/7895044498/5112673685211901"] },
+      { y: 2024, m: 12, d: 14, links: ["https://weibo.com/7895044498/5111574255896714"] },
+      { y: 2024, m: 11, d: 25, links: ["https://weibo.com/7895044498/5104735827004838","https://weibo.com/7895044498/5104734262791657"] },
+      { y: 2024, m: 11, d: 24, links: ["https://weibo.com/7895044498/5104359818138115"] },
+      { y: 2024, m: 11, d: 19, links: ["https://weibo.com/7895044498/5102560100749743"] },
+      { y: 2024, m: 11, d: 17, links: ["https://weibo.com/7895044498/5101836681348674"] },
+      { y: 2024, m: 11, d: 12, links: ["https://weibo.com/7895044498/5099967746152971"] },
+      { y: 2024, m: 10, d: 31, links: ["https://weibo.com/7895044498/5095674343853693"] },
+      { y: 2024, m: 10, d: 20, links: ["https://weibo.com/7895044498/5091566907037876","https://weibo.com/7895044498/5091547933315040","https://weibo.com/7895044498/5091546726925885"] },
+      { y: 2024, m: 10, d: 18, links: ["https://weibo.com/7895044498/5090865926115046"] },
+      { y: 2024, m: 10, d: 8, links: ["https://weibo.com/7895044498/5087305079458852","https://weibo.com/7895044498/5087304880489636"] },
+      { y: 2024, m: 10, d: 7, links: ["https://weibo.com/7895044498/5086872680795138","https://weibo.com/7895044498/5086871942597916","https://weibo.com/7895044498/5086871535747558"] },
+      { y: 2024, m: 10, d: 2, links: ["https://weibo.com/7895044498/5085032599522139"] },
+      { y: 2024, m: 9, d: 30, links: ["https://weibo.com/7895044498/5084337144336737"] },
+      { y: 2024, m: 9, d: 26, links: ["https://weibo.com/7895044498/5082928592456556"] },
+      { y: 2024, m: 9, d: 25, links: ["https://weibo.com/7895044498/5082604581161205","https://weibo.com/7895044498/5082603596548936"] },
+      { y: 2024, m: 9, d: 24, links: ["https://weibo.com/7895044498/5082200183672641"] },
+      { y: 2024, m: 9, d: 22, links: ["https://weibo.com/7895044498/5081498364156583"] },
+      { y: 2024, m: 9, d: 21, links: ["https://weibo.com/7895044498/5081178925698346","https://weibo.com/7895044498/5081178530913985"] },
+      { y: 2024, m: 9, d: 20, links: ["https://weibo.com/7895044498/5080816478852526"] },
+      { y: 2024, m: 9, d: 17, links: ["https://weibo.com/7895044498/5079612159691506","https://weibo.com/7895044498/5079611484930058","https://weibo.com/7895044498/5079610207503715"] },
+      { y: 2024, m: 9, d: 16, links: ["https://weibo.com/7895044498/5079366705087527"] },
+      { y: 2024, m: 9, d: 12, links: ["https://weibo.com/7895044498/5077917407117502","https://weibo.com/7895044498/5077872466987033"] },
+      { y: 2024, m: 9, d: 11, links: ["https://weibo.com/7895044498/5077554719622152"] },
+      { y: 2024, m: 9, d: 10, links: ["https://weibo.com/7895044498/5077149336209785","https://weibo.com/7895044498/5077149294006900","https://weibo.com/7895044498/5077149272248917"] },
+      { y: 2024, m: 9, d: 9, links: ["https://weibo.com/7895044498/5076830291493717"] },
+      { y: 2024, m: 9, d: 7, links: ["https://weibo.com/7895044498/5076105525204256"] },
+      { y: 2024, m: 9, d: 6, links: ["https://weibo.com/7895044498/5075698064036243"] },
+      { y: 2024, m: 8, d: 27, links: ["https://weibo.com/7895044498/5072063505370950"] },
+      { y: 2024, m: 8, d: 22, links: ["https://weibo.com/7895044498/5070235380227339"] },
+      { y: 2024, m: 8, d: 8, links: ["https://weibo.com/7895044498/5065191630311118","https://weibo.com/7895044498/5065191140101506","https://weibo.com/7895044498/5065189764367548"] },
+      { y: 2024, m: 8, d: 4, links: ["https://weibo.com/7895044498/5063721975552271","https://weibo.com/7895044498/5063721396735127"] },
+      { y: 2024, m: 8, d: 3, links: ["https://weibo.com/7895044498/5063393936147533","https://weibo.com/7895044498/5063392882852886"] },
+      { y: 2024, m: 8, d: 2, links: ["https://weibo.com/7895044498/5062948911058163"] },
+      { y: 2024, m: 7, d: 23, links: ["https://weibo.com/7895044498/5059386756831069"] },
+      { y: 2024, m: 7, d: 22, links: ["https://weibo.com/7895044498/5059059957110405","https://weibo.com/7895044498/5058941597257990"] },
+      { y: 2024, m: 7, d: 12, links: ["https://weibo.com/7895044498/5055395223837067","https://weibo.com/7895044498/5055394487996737"] },
+      { y: 2024, m: 7, d: 6, links: ["https://weibo.com/7895044498/5053234228498481"] },
+      { y: 2024, m: 7, d: 4, links: ["https://weibo.com/7895044498/5052535891298675"] },
+      { y: 2024, m: 6, d: 27, links: ["https://weibo.com/7895044498/5049904095297923"] },
+      { y: 2024, m: 6, d: 26, links: ["https://weibo.com/7895044498/5049632914933869"] },
+      { y: 2024, m: 6, d: 24, links: ["https://weibo.com/7895044498/5048775651623637","https://weibo.com/7895044498/5048775399968936"] },
+      { y: 2024, m: 6, d: 23, links: ["https://weibo.com/7895044498/5048445542859241"] },
+      { y: 2024, m: 6, d: 21, links: ["https://weibo.com/7895044498/5047840334157271","https://weibo.com/7895044498/5047840088527615"] },
+      { y: 2024, m: 6, d: 20, links: ["https://weibo.com/7895044498/5047308255499679"] },
+      { y: 2024, m: 6, d: 19, links: ["https://weibo.com/7895044498/5047114223324824"] },
+      { y: 2024, m: 6, d: 14, links: ["https://weibo.com/7895044498/5045212457730708"] },
+      { y: 2024, m: 6, d: 13, links: ["https://weibo.com/7895044498/5044910598128770"] },
+      { y: 2024, m: 6, d: 11, links: ["https://weibo.com/7895044498/5044058357762983"] },
+      { y: 2024, m: 6, d: 10, links: ["https://weibo.com/7895044498/5043852608015418"] },
+      { y: 2024, m: 6, d: 9, links: ["https://weibo.com/7895044498/5043491227045202","https://weibo.com/7895044498/5043440926332220"] },
+      { y: 2024, m: 6, d: 3, links: ["https://weibo.com/7895044498/5041182847010502"] },
+      { y: 2024, m: 5, d: 23, links: ["https://weibo.com/7895044498/5037318564486449"] },
+      { y: 2024, m: 5, d: 17, links: ["https://weibo.com/7895044498/5035106168736703"] },
+      { y: 2024, m: 5, d: 15, links: ["https://weibo.com/7895044498/5034372584966549","https://weibo.com/7895044498/5034372422173330"] },
+      { y: 2024, m: 5, d: 14, links: ["https://weibo.com/7895044498/5034059174777615","https://weibo.com/7895044498/5034047755782472"] },
+      { y: 2024, m: 5, d: 4, links: ["https://weibo.com/7895044498/5030449600791784"] },
+      { y: 2024, m: 5, d: 3, links: ["https://weibo.com/7895044498/5030050057683174"] },
+      { y: 2024, m: 4, d: 13, links: ["https://weibo.com/7895044498/5022741126447464","https://weibo.com/7895044498/5022740826295650","https://weibo.com/7895044498/5022738851044262","https://weibo.com/7895044498/5022738563203074"] },
+      { y: 2024, m: 4, d: 11, links: ["https://weibo.com/7895044498/5022035151426283"] },
+      { y: 2024, m: 4, d: 5, links: ["https://weibo.com/7895044498/5019875271772932","https://weibo.com/7895044498/5019588988765498","https://weibo.com/7895044498/5019588693852667","https://weibo.com/7895044498/5019588578771391","https://weibo.com/7895044498/5019588145709541","https://weibo.com/7895044498/5019588035346910"] },
+      { y: 2024, m: 3, d: 31, links: ["https://weibo.com/7895044498/5018125051892155"] },
+      { y: 2024, m: 3, d: 20, links: ["https://weibo.com/7895044498/5014079263998258"] },
+      { y: 2024, m: 3, d: 8, links: ["https://weibo.com/7895044498/5009638387093148"] },
+      { y: 2024, m: 3, d: 7, links: ["https://weibo.com/7895044498/5009405327970799"] },
+      { y: 2024, m: 3, d: 2, links: ["https://weibo.com/7895044498/5007420500218382"] },
+      { y: 2024, m: 2, d: 27, links: ["https://weibo.com/7895044498/5006111722182184","https://weibo.com/7895044498/5006108044036862"] },
+      { y: 2024, m: 2, d: 26, links: ["https://weibo.com/7895044498/5005802513108661","https://weibo.com/7895044498/5005802410871457"] },
+      { y: 2024, m: 2, d: 25, links: ["https://weibo.com/7895044498/5005439768465345"] },
+      { y: 2024, m: 2, d: 24, links: ["https://weibo.com/7895044498/5005030183145627","https://weibo.com/7895044498/5005019810628579"] },
+      { y: 2024, m: 2, d: 20, links: ["https://weibo.com/7895044498/5003569226843956"] },
+      { y: 2024, m: 2, d: 19, links: ["https://weibo.com/7895044498/5003089287316055"] },
+      { y: 2024, m: 2, d: 18, links: ["https://weibo.com/7895044498/5002904727721038","https://weibo.com/7895044498/5002904585636103","https://weibo.com/7895044498/5002816043617716"] },
+      { y: 2024, m: 2, d: 14, links: ["https://weibo.com/7895044498/5001453444011935","https://weibo.com/7895044498/5001453173214839"] },
+      { y: 2024, m: 2, d: 13, links: ["https://weibo.com/7895044498/5001057247694499"] },
+      { y: 2024, m: 2, d: 6, links: ["https://weibo.com/7895044498/4998511380667695","https://weibo.com/7895044498/4998491450904162","https://weibo.com/7895044498/4998490895942040"] },
+      { y: 2024, m: 2, d: 5, links: ["https://weibo.com/7895044498/4998187383261529","https://weibo.com/7895044498/4998112785992041"] },
+      { y: 2024, m: 1, d: 31, links: ["https://weibo.com/7895044498/4996384530369723"] },
+      { y: 2024, m: 1, d: 30, links: ["https://weibo.com/7895044498/4995956703495455"] },
+      { y: 2024, m: 1, d: 25, links: ["https://weibo.com/7895044498/4994201731729689","https://weibo.com/7895044498/4994202610176656"] },
+      { y: 2024, m: 1, d: 24, links: ["https://weibo.com/7895044498/4993784767578289"] },
+      { y: 2024, m: 1, d: 21, links: ["https://weibo.com/7895044498/4992635051970995","https://weibo.com/7895044498/4992638522754738","https://weibo.com/7895044498/4992756495418976"] },
+      { y: 2024, m: 1, d: 18, links: ["https://weibo.com/7895044498/4991669569324426"] },
+      { y: 2024, m: 1, d: 17, links: ["https://weibo.com/7895044498/4991309186339791"] }
+    ];
+
+    function renderWeiboGallery() {
+      var container = document.getElementById("weibo-gallery-container");
+      if (!container) return;
+      var html = "";
+      var currentYear = null;
+      WEIBO_DATA.forEach(function(item) {
+        if (item.y !== currentYear) {
+          if (currentYear !== null) html += "</div>";
+          currentYear = item.y;
+          html += '<div class="weibo-year-divider">' + item.y + '年</div><div class="weibo-gallery">';
+        }
+        var mm = String(item.m).padStart(2, "0");
+        var dd = String(item.d).padStart(2, "0");
+        var count = item.links.length;
+        var linksHtml = "";
+        item.links.forEach(function(url, i) {
+          var label = count > 1 ? "第 " + (i + 1) + " 张" : "查看照片";
+          linksHtml += '<a class="weibo-link-item" href="' + url + '" target="_blank" rel="noopener noreferrer"><span class="link-icon">📷</span><span class="link-label">' + label + '</span><span class="link-arrow">→</span></a>';
+        });
+        html += '<div class="weibo-date-card"><div class="weibo-date-header"><span class="weibo-date-text">' + mm + "." + dd + '</span><span class="weibo-photo-count">' + count + ' 张</span></div><div class="weibo-links">' + linksHtml + '</div></div>';
+      });
+      if (currentYear !== null) html += "</div>";
+      container.innerHTML = html;
+    }
+    renderWeiboGallery();
+
+    // ===== 官抖单人数据 & 渲染 =====
+    const DOUYIN_DATA = [
+      { y: 2026, m: 7, d: 13, items: [{ url: "https://v.douyin.com/3TFAsvFhJzs/", desc: "NEKO EVERYTHING, ALL AT ONCE", tag: "" }] },
+      { y: 2026, m: 7, d: 12, items: [{ url: "https://v.douyin.com/HRKJBLh9HOc/", desc: "CHU 🩷 EVERYTHING, ALL AT ONCE", tag: "" }] },
+      { y: 2026, m: 7, d: 11, items: [{ url: "https://v.douyin.com/uI2L7wqaIeA/", desc: "Ko Ko Bop EVERYTHING, ALL AT ONCE", tag: "" }] },
+      { y: 2026, m: 6, d: 10, items: [{ url: "https://v.douyin.com/DqXb8NE_KZE/", desc: "dυ rυ dυ EVERYTHING, ALL AT ONCE", tag: "单人" }] },
+      { y: 2026, m: 5, d: 2, items: [{ url: "https://v.douyin.com/fZdsk_6YlpQ/", desc: "Ode to Love with #南诚模", tag: "队外单人cha" }] },
+      { y: 2026, m: 4, d: 26, items: [{ url: "https://v.douyin.com/K2SWhp9fzZY/", desc: "Ode to Love with #TAKUMI", tag: "队外单人cha" }] },
+      { y: 2026, m: 4, d: 22, items: [{ url: "https://v.douyin.com/Qd-wTsMa6nw/", desc: "🤫 EVERYTHING, ALL AT ONCE", tag: "" }] },
+      { y: 2026, m: 4, d: 20, items: [{ url: "https://v.douyin.com/FskunSV_aqQ/", desc: "Ode to Love with IAN", tag: "队外单人cha" }] },
+      { y: 2026, m: 3, d: 31, items: [
+        { url: "https://v.douyin.com/_CaVs9BKMAk/", desc: "令人意外的勇志不能吃的东西", tag: "" },
+        { url: "https://v.douyin.com/5pBQKTkGpSA/", desc: "#人生 #鸡汤 #NCTWISH", tag: "" },
+        { url: "https://v.douyin.com/FGEAZ8-B_YE/", desc: "什么都看不见的话应该怎么办呢", tag: "" }
+      ] },
+      { y: 2026, m: 3, d: 3, items: [{ url: "https://v.douyin.com/K2wDucyIyvA/", desc: "A quick meetup for #Famous", tag: "RIIZE官抖" }] },
+      { y: 2026, m: 2, d: 21, items: [{ url: "https://v.douyin.com/hFE7h2tP8tQ/", desc: "装作猫咪", tag: "" }] },
+      { y: 2026, m: 2, d: 1, items: [{ url: "https://v.douyin.com/UsQR0hTtQ2A/", desc: "今天便允许你的真心", tag: "" }] },
+      { y: 2026, m: 1, d: 26, items: [{ url: "https://v.douyin.com/XNHQUvxI1Ks/", desc: "Growl", tag: "" }] },
+      { y: 2026, m: 1, d: 1, items: [{ url: "https://v.douyin.com/kW5VL7p3Zwg/", desc: "Yaaa", tag: "" }] },
+      { y: 2025, m: 12, d: 26, items: [
+        { url: "https://v.douyin.com/p0b7UyPTkWQ/", desc: "Draft", tag: "" },
+        { url: "https://v.douyin.com/smb-YddK-SQ/", desc: "(╥﹏╥)(>⤙<)", tag: "队外单人cha" }
+      ] },
+      { y: 2025, m: 9, d: 21, items: [{ url: "https://v.douyin.com/W-w8gWJWmSU/", desc: "🥟&🍊♫⋆｡", tag: "队外单人cha" }] },
+      { y: 2025, m: 9, d: 6, items: [
+        { url: "https://v.douyin.com/8PGnHRXi0Cg/", desc: "Magic Touch", tag: "" },
+        { url: "https://v.douyin.com/relR9FzYNO0/", desc: "Pororo前辈", tag: "" }
+      ] },
+      { y: 2025, m: 8, d: 17, items: [{ url: "https://v.douyin.com/OgdgvCXkhUA/", desc: "˖°𓇼🤓⋆｡𖦹°.", tag: "" }] },
+      { y: 2025, m: 8, d: 16, items: [
+        { url: "https://v.douyin.com/82LKSVbYgYA/", desc: "Surf with #YENA", tag: "队外单人cha" },
+        { url: "https://v.douyin.com/6Oj-yp8cdfw/", desc: "Surf with #JOY Red Velvet", tag: "队外单人cha" }
+      ] },
+      { y: 2025, m: 8, d: 12, items: [{ url: "https://v.douyin.com/BPpYmNYAmJg/", desc: "Surf with ANTON RIIZE", tag: "队外单人cha" }] },
+      { y: 2025, m: 8, d: 10, items: [{ url: "https://v.douyin.com/nf-b66C9lLQ/", desc: "🐈⊹☆", tag: "" }] },
+      { y: 2025, m: 5, d: 19, items: [{ url: "https://v.douyin.com/6KnFKvdjiJ8/", desc: "喵💢", tag: "" }] },
+      { y: 2025, m: 4, d: 26, items: [{ url: "https://v.douyin.com/OzskmsB6pQk/", desc: "poppop with #AyumuImazu", tag: "队外单人cha" }] },
+      { y: 2025, m: 4, d: 21, items: [{ url: "https://v.douyin.com/gA_O0_zAc5A/", desc: "poppop with #KAI", tag: "队外单人cha" }] },
+      { y: 2025, m: 4, d: 11, items: [{ url: "https://v.douyin.com/RDz4pVh-KAg/", desc: "翻镜挑战 #NCTWISH", tag: "" }] },
+      { y: 2025, m: 4, d: 5, items: [{ url: "https://v.douyin.com/9ROGUhvWTPg/", desc: "with u", tag: "" }] },
+      { y: 2025, m: 3, d: 31, items: [{ url: "https://v.douyin.com/Af6joQNnO88/", desc: "#NCTWISH #愚人节", tag: "" }] },
+      { y: 2024, m: 9, d: 26, items: [{ url: "https://v.douyin.com/BJRFV1uZaG4/", desc: "Let's go #Steady", tag: "队外单人cha" }] },
+      { y: 2024, m: 9, d: 20, items: [{ url: "https://v.douyin.com/JkrdHUlvTF4/", desc: "在更晚之前给你 #Steady", tag: "队外单人cha" }] },
+      { y: 2024, m: 8, d: 7, items: [{ url: "https://v.douyin.com/b8heimyTt3A/", desc: "power💥 step🐾", tag: "" }] },
+      { y: 2024, m: 7, d: 29, items: [{ url: "https://v.douyin.com/pXM10mS5Ck8/", desc: "Fell for #勇志 in just", tag: "" }] },
+      { y: 2024, m: 7, d: 8, items: [{ url: "https://v.douyin.com/jkRiBopZC38/", desc: "BOOMin' like a ✷Songbird✷", tag: "队外单人cha" }] },
+      { y: 2024, m: 5, d: 2, items: [{ url: "https://v.douyin.com/yqJzFRpmDxI/", desc: "👾ˎˊ˗⋆^.•", tag: "" }] },
+      { y: 2024, m: 4, d: 5, items: [{ url: "https://v.douyin.com/uh1UPs-blRU/", desc: "｡ﾟ･⭐️──20──⭐️｡ﾟ", tag: "" }] },
+      { y: 2024, m: 3, d: 27, items: [{ url: "https://v.douyin.com/oz3aqLDaEzo/", desc: "🎀🩰🎧", tag: "" }] },
+      { y: 2024, m: 2, d: 24, items: [{ url: "https://v.douyin.com/-g8y5tzI1cw/", desc: "#ItsMyWISH 風に乗って", tag: "队外单人cha" }] },
+      { y: 2024, m: 2, d: 18, items: [{ url: "https://v.douyin.com/ADaeMrPK2iI/", desc: "🅛♥🅥🅔 🅨♥🅤", tag: "" }] }
+    ];
+
+    function renderDouyinGallery() {
+      var container = document.getElementById("douyin-gallery-container");
+      if (!container) return;
+      var html = "";
+      var currentYear = null;
+      DOUYIN_DATA.forEach(function(item) {
+        if (item.y !== currentYear) {
+          if (currentYear !== null) html += "</div>";
+          currentYear = item.y;
+          html += '<div class="dy-year-divider">' + item.y + '年</div><div class="dy-gallery">';
+        }
+        var mm = String(item.m).padStart(2, "0");
+        var dd = String(item.d).padStart(2, "0");
+        var count = item.items.length;
+        var linksHtml = "";
+        item.items.forEach(function(it, i) {
+          var label = it.desc || ("视频 " + (i + 1));
+          if (count > 1) label = (i + 1) + ". " + label;
+          var tagBadge = it.tag ? '<span class="dy-tag-badge">' + escapeHtml(it.tag) + '</span>' : '';
+          linksHtml += '<div class="dy-link-row">' +
+            '<a class="dy-link-item" href="' + it.url + '" target="_blank" rel="noopener noreferrer">' +
+              '<span class="link-icon">🎵</span>' +
+              '<span class="link-label">' + escapeHtml(label) + '</span>' +
+              tagBadge +
+              '<span class="link-arrow">→</span>' +
+            '</a>' +
+            '<button class="dy-copy-btn" onclick="copyDouyinLink(this, \'' + it.url + '\')">复制</button>' +
+          '</div>';
+        });
+        html += '<div class="dy-date-card"><div class="dy-date-header"><span class="dy-date-text">' + mm + "." + dd + '</span><span class="dy-video-count">' + count + ' 个视频</span></div><div class="dy-links">' + linksHtml + '</div></div>';
+      });
+      if (currentYear !== null) html += "</div>";
+      container.innerHTML = html;
+    }
+
+    function copyDouyinLink(btn, url) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          btn.textContent = "已复制✓";
+          btn.classList.add("copied");
+          setTimeout(function() { btn.textContent = "复制"; btn.classList.remove("copied"); }, 2000);
+        }).catch(function() {
+          fallbackCopy(btn, url);
+        });
+      } else {
+        fallbackCopy(btn, url);
+      }
+    }
+    function fallbackCopy(btn, url) {
+      var ta = document.createElement("textarea");
+      ta.value = url;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch(e) {}
+      document.body.removeChild(ta);
+      btn.textContent = "已复制✓";
+      btn.classList.add("copied");
+      setTimeout(function() { btn.textContent = "复制"; btn.classList.remove("copied"); }, 2000);
+    }
+
+    renderDouyinGallery();
+
+    // ===== 演出合集 - LOG IN 日巡/亚巡数据 =====
+    const LOGIN_DATA = [
+      {
+        date: "",
+        venue: "京都",
+        flag: "🇯🇵",
+        bili: [{ url: "https://m.bilibili.com/video/BV1yyQ6YdEpx", label: "幕后彩排" }]
+      },
+      {
+        date: "",
+        venue: "横滨",
+        flag: "🇯🇵",
+        bili: [{ url: "https://m.bilibili.com/video/BV1SfXLYAE3b", label: "幕后彩排" }]
+      },
+      {
+        date: "",
+        venue: "名古屋",
+        flag: "🇯🇵",
+        bili: [{ url: "https://m.bilibili.com/video/BV1YFZhY4EeJ", label: "幕后彩排" }]
+      },
+      {
+        date: "2025.03.21-03.23",
+        venue: "首尔",
+        flag: "🇰🇷",
+        bili: [{ url: "https://b23.tv/KbTUnwd", label: "Behind #3 和NCTzen一起LOG in" }]
+      },
+      {
+        date: "2025.04.04-04.06",
+        venue: "澳门",
+        flag: "🇲🇴",
+        bili: [{ url: "https://m.bilibili.com/video/BV12hNbzpEjs", label: "幕后彩排" }]
+      },
+      {
+        date: "2025.04.12",
+        venue: "马尼拉",
+        flag: "🇵🇭",
+        bili: [{ url: "https://m.bilibili.com/video/BV1sbNfzKE7u", label: "幕后彩排" }]
+      },
+      {
+        date: "2025.05.02-05.03",
+        venue: "香港",
+        flag: "🇭🇰",
+        bili: [{ url: "https://m.bilibili.com/video/BV1usK2z5EP4", label: "幕后彩排" }]
+      },
+      {
+        date: "2025.05.17",
+        venue: "新加坡",
+        flag: "🇸🇬",
+        bili: [{ url: "https://m.bilibili.com/video/BV13puczfEKn", label: "幕后彩排" }]
+      },
+      {
+        date: "2025.05.24",
+        venue: "台北",
+        flag: "🇨🇳",
+        bili: [{ url: "https://m.bilibili.com/video/BV1c6gNzoEeS", label: "幕后彩排" }]
+      },
+      {
+        date: "2025.05.31",
+        venue: "雅加达",
+        flag: "🇮🇩",
+        bili: [{ url: "https://m.bilibili.com/video/BV1S4hAznE8B", label: "幕后彩排" }]
+      },
+      {
+        date: "2025.06.07",
+        venue: "曼谷",
+        flag: "🇹🇭",
+        bili: [{ url: "https://m.bilibili.com/video/BV1PohVz6ENW", label: "幕后彩排" }]
+      }
+    ];
+
+    function renderLoginGallery() {
+      var container = document.getElementById("login-gallery-container");
+      if (!container) return;
+      var html = '<div class="tour-gallery">';
+      LOGIN_DATA.forEach(function(item) {
+        var dateDisplay = item.date || "日巡";
+        var headerHtml = '<div class="tour-card">' +
+          '<div class="tour-card-header">' +
+            '<span class="tour-date-text">' + dateDisplay + '</span>' +
+            '<span class="tour-venue-info"><span class="tour-venue-flag">' + item.flag + '</span>' + escapeHtml(item.venue) + '</span>' +
+          '</div>' +
+          '<div class="tour-card-body">';
+
+        var bodyHtml = "";
+        if (item.bili.length > 0) {
+          bodyHtml += '<div class="tour-group">' +
+            '<div class="tour-group-label bili">🎬 幕后彩排（B站）</div>';
+          item.bili.forEach(function(b) {
+            bodyHtml += '<div class="tour-link-row">' +
+              '<a class="tour-link-item bili" href="' + b.url + '" target="_blank" rel="noopener noreferrer">' +
+                '<span class="link-icon">🎬</span>' +
+                '<span class="link-label">' + escapeHtml(b.label) + '</span>' +
+                '<span class="link-arrow">→</span>' +
+              '</a>' +
+              '<button class="tour-copy-btn bili" onclick="copyTourLink(this, \'' + b.url + '\')">复制</button>' +
+            '</div>';
+          });
+          bodyHtml += '</div>';
+        }
+
+        html += headerHtml + bodyHtml + '</div></div>';
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    renderLoginGallery();
+
+    // ===== 演出合集 - 一巡数据 =====
+    const TOUR1_DATA = [
+      {
+        date: "2025.10.31-11.02",
+        venue: "仁川",
+        flag: "🇰🇷",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1YNSxBUEnA", label: "幕后彩排 Day1" },
+          { url: "https://m.bilibili.com/video/BV1PH2jBKE89", label: "幕后彩排 Day2" },
+          { url: "https://m.bilibili.com/video/BV15wm1BiE7M", label: "幕后彩排 Day3" },
+          { url: "https://m.bilibili.com/video/BV1kRBsBKEBg", label: "幕后彩排 总结" }
+        ]
+      },
+      {
+        date: "2025.11.08-2026.01.18",
+        venue: "日巡（石川·广岛·香川·大阪·北海道·福冈·爱知·神户·东京）",
+        flag: "🇯🇵",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV17nvfB2EP4", label: "日巡幕后彩排 总结①" },
+          { url: "https://m.bilibili.com/video/BV1K5zvBMEgr", label: "日巡幕后彩排 总结②" },
+          { url: "https://m.bilibili.com/video/BV1yyFszbEt1", label: "日巡幕后彩排 总结③" }
+        ]
+      },
+      {
+        date: "2026.01.24-01.25",
+        venue: "香港",
+        flag: "🇭🇰",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1arZTBDE2r", label: "幕后彩排" }
+        ]
+      },
+      {
+        date: "2026.02.06",
+        venue: "吉隆坡",
+        flag: "🇲🇾",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1bVNFzGEbF", label: "幕后彩排" }
+        ]
+      },
+      {
+        date: "2026.02.28",
+        venue: "台北",
+        flag: "🇨🇳",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1KMXKBoECi", label: "幕后彩排" }
+        ]
+      },
+      {
+        date: "2026.03.14",
+        venue: "马尼拉",
+        flag: "🇵🇭",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1KMXKBoECi", label: "幕后彩排" }
+        ]
+      },
+      {
+        date: "2026.03.28",
+        venue: "高雄",
+        flag: "🇨🇳",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV16vdHBNEUj", label: "幕后彩排" }
+        ]
+      },
+      {
+        date: "2026.04.04",
+        venue: "曼谷",
+        flag: "🇹🇭",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1PqLm67E1B", label: "幕后彩排①" },
+          { url: "https://m.bilibili.com/video/BV1u6QuBBE1t", label: "幕后彩排②" }
+        ]
+      },
+      {
+        date: "2026.04.11",
+        venue: "雅加达",
+        flag: "🇮🇩",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1PqLm67E1B", label: "幕后彩排" }
+        ]
+      },
+      {
+        date: "2026.04.17-04.19",
+        venue: "最终场",
+        flag: "🇰🇷",
+        weibo: [],
+        bili: [
+          { url: "https://m.bilibili.com/video/BV1Kwjq6sEAC", label: "幕后彩排 Day1" },
+          { url: "https://m.bilibili.com/video/BV1iejR6xE4a", label: "幕后彩排 Day2" },
+          { url: "https://m.bilibili.com/video/BV1zoJG6HEiy", label: "幕后彩排 Day3" }
+        ]
+      }
+    ];
+
+    function renderTourGallery() {
+      var container = document.getElementById("tour1-gallery-container");
+      if (!container) return;
+      var html = '<div class="tour-gallery">';
+      TOUR1_DATA.forEach(function(item) {
+        var headerHtml = '<div class="tour-card">' +
+          '<div class="tour-card-header">' +
+            '<span class="tour-date-text">' + item.date + '</span>' +
+            '<span class="tour-venue-info"><span class="tour-venue-flag">' + item.flag + '</span>' + escapeHtml(item.venue) + '</span>' +
+          '</div>' +
+          '<div class="tour-card-body">';
+
+        var bodyHtml = "";
+
+        if (item.bili.length > 0) {
+          bodyHtml += '<div class="tour-group">' +
+            '<div class="tour-group-label bili">🎬 幕后彩排（B站）</div>';
+          item.bili.forEach(function(b) {
+            bodyHtml += '<div class="tour-link-row">' +
+              '<a class="tour-link-item bili" href="' + b.url + '" target="_blank" rel="noopener noreferrer">' +
+                '<span class="link-icon">🎬</span>' +
+                '<span class="link-label">' + escapeHtml(b.label) + '</span>' +
+                '<span class="link-arrow">→</span>' +
+              '</a>' +
+              '<button class="tour-copy-btn bili" onclick="copyTourLink(this, \'' + b.url + '\')">复制</button>' +
+            '</div>';
+          });
+          bodyHtml += '</div>';
+        }
+
+        html += headerHtml + bodyHtml + '</div></div>';
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    function copyTourLink(btn, url) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          btn.textContent = "已复制✓";
+          btn.classList.add("copied");
+          setTimeout(function() { btn.textContent = "复制"; btn.classList.remove("copied"); }, 2000);
+        }).catch(function() {
+          fallbackTourCopy(btn, url);
+        });
+      } else {
+        fallbackTourCopy(btn, url);
+      }
+    }
+    function fallbackTourCopy(btn, url) {
+      var ta = document.createElement("textarea");
+      ta.value = url;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch(e) {}
+      document.body.removeChild(ta);
+      btn.textContent = "已复制✓";
+      btn.classList.add("copied");
+      setTimeout(function() { btn.textContent = "复制"; btn.classList.remove("copied"); }, 2000);
+    }
+
+    renderTourGallery();
+
+    // ===== 粉丝留言板（Vercel Serverless API + Gist 永久存储）=====
+    // 通过 /api/messages 读写 GitHub Gist（永久保存，token 不会暴露）
+    // localStorage 仍作为本地缓存（即使网络故障也不会丢）
+    const API_URL = "/api/messages";
+    const PAGE_SIZE = 500;
+    const MSG_MAX_LEN = 50;            // 留言字数限制 50 字
+    const MAX_MESSAGES = 500;          // 总容量 500 条
+    const REQUEST_TIMEOUT = 10000;     // 单次请求超时 10 秒
+    const LOCAL_CACHE_KEY = "yushi_msg_cache_v3";
+    let _allMessages = [];
+    let _displayCount = PAGE_SIZE;
+
+    // ===== localStorage 缓存 =====
+    function saveLocalCache(messages) {
+      try {
+        const sorted = messages.slice().sort((a, b) => new Date(b.time) - new Date(a.time));
+        const trimmed = sorted.slice(0, MAX_MESSAGES);
+        localStorage.setItem(LOCAL_CACHE_KEY, JSON.stringify(trimmed));
+      } catch (e) {}
+    }
+
+    function loadLocalCache() {
+      try {
+        const raw = localStorage.getItem(LOCAL_CACHE_KEY);
+        if (!raw) return [];
+        const data = JSON.parse(raw);
+        return Array.isArray(data) ? data : [];
+      } catch (e) { return []; }
+    }
+
+    // ===== 带超时的 fetch =====
+    async function fetchWithTimeout(url, options, timeout) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeout);
+      try {
+        const resp = await fetch(url, { ...options, signal: controller.signal });
+        clearTimeout(timeoutId);
+        return resp;
+      } catch (e) {
+        clearTimeout(timeoutId);
+        throw e;
+      }
+    }
+
+    // ===== 加载留言（先本地缓存秒开，再 API 同步） =====
+    async function loadMessages() {
+      const list = document.getElementById("msgList");
+      const countEl = document.getElementById("msgCount");
+
+      // 1) 先从 localStorage 加载（即时显示）
+      const cached = loadLocalCache();
+      if (cached.length > 0) {
+        _allMessages = cached.slice().sort((a, b) => new Date(b.time) - new Date(a.time));
+        countEl.textContent = "共 " + _allMessages.length + " 条留言（同步中...）";
+        _displayCount = PAGE_SIZE;
+        renderMessages();
+      } else {
+        countEl.textContent = "加载中...";
+      }
+
+      // 2) 调用 API 获取最新数据
+      try {
+        const resp = await fetchWithTimeout(API_URL, {
+          method: "GET",
+          headers: { "Accept": "application/json" }
+        }, REQUEST_TIMEOUT);
+
+        if (!resp.ok) throw new Error("HTTP " + resp.status);
+        const data = await resp.json();
+        const serverMsgs = Array.isArray(data.messages) ? data.messages : [];
+
+        // 合并 + 去重
+        const seen = {};
+        const merged = [];
+        const all = serverMsgs.concat(cached);
+        for (let i = 0; i < all.length; i++) {
+          const m = all[i];
+          if (!m || !m.id || seen[m.id]) continue;
+          seen[m.id] = true;
+          merged.push(m);
+        }
+        merged.sort((a, b) => new Date(b.time) - new Date(a.time));
+        _allMessages = merged.slice(0, MAX_MESSAGES);
+        saveLocalCache(_allMessages);
+
+        countEl.textContent = _allMessages.length > 0
+          ? "共 " + _allMessages.length + " 条留言"
+          : "";
+        if (_allMessages.length === 0) {
+          list.innerHTML = '<div class="msg-empty">还没有留言，快来第一个给勇志留言吧！🐱</div>';
+          return;
+        }
+        _displayCount = PAGE_SIZE;
+        renderMessages();
+      } catch (e) {
+        // API 失败时使用本地缓存
+        if (_allMessages.length > 0) {
+          countEl.textContent = "共 " + _allMessages.length + " 条留言（离线缓存）";
+        } else {
+          list.innerHTML = '<div class="msg-empty">留言板加载中，请稍等再刷新看看 ⭐</div>';
+          countEl.textContent = "";
+        }
+      }
+    }
+
+    // 分页渲染留言
+    function renderMessages() {
+      const list = document.getElementById("msgList");
+      const visible = _allMessages.slice(0, _displayCount);
+      list.innerHTML = visible.map(m => {
+        const displayName = m.name && m.name.trim() ? escapeHtml(m.name) : "匿名勇志粉";
+        const timeStr = formatTime(m.time);
+        return '<div class="msg-item">' +
+          '<div class="msg-item-head">' +
+            '<span class="msg-item-name">🐱 ' + displayName + '</span>' +
+            '<span class="msg-item-time">' + timeStr + '</span>' +
+          '</div>' +
+          '<div class="msg-item-text">' + escapeHtml(m.text) + '</div>' +
+        '</div>';
+      }).join("");
+      if (_allMessages.length > _displayCount) {
+        list.innerHTML += '<div class="msg-load-more" id="msgLoadMore">' +
+          '还有 ' + (_allMessages.length - _displayCount) + ' 条留言，点击查看更多 ▼</div>';
+        document.getElementById("msgLoadMore").onclick = function() {
+          _displayCount += PAGE_SIZE;
+          renderMessages();
+        };
+      }
+    }
+
+    // ===== 提交留言 =====
+    async function submitMessage() {
+      const nameInput = document.getElementById("msgName");
+      const textInput = document.getElementById("msgText");
+      const anonCheck = document.getElementById("msgAnon");
+      const btn = document.getElementById("msgSubmit");
+      const text = textInput.value.trim();
+      if (!text) {
+        textInput.focus();
+        showCatBubble("留言内容不能为空哦！🐱");
+        return;
+      }
+      if (text.length > MSG_MAX_LEN) {
+        showCatBubble("留言太长啦，最多" + MSG_MAX_LEN + "字 🐱");
+        return;
+      }
+      let name = anonCheck.checked ? "" : nameInput.value.trim();
+      btn.disabled = true;
+      btn.textContent = "发送中...";
+
+      // 1) 先乐观更新到本地缓存（即时显示）
+      const tempId = "local_" + Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+      const newMsg = {
+        id: tempId,
+        name: name,
+        text: text,
+        time: new Date().toISOString()
+      };
+      const cached = loadLocalCache();
+      cached.unshift(newMsg);
+      saveLocalCache(cached.slice(0, MAX_MESSAGES));
+      _allMessages = cached.slice().sort((a, b) => new Date(b.time) - new Date(a.time));
+      _displayCount = PAGE_SIZE;
+      renderMessages();
+
+      // 2) 调用 API 同步到云端
+      try {
+        const resp = await fetchWithTimeout(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: name, text: text })
+        }, REQUEST_TIMEOUT);
+
+        const data = await resp.json().catch(() => ({}));
+
+        if (!resp.ok) {
+          throw new Error(data.error || ("HTTP " + resp.status));
+        }
+
+        // 成功：把 tempId 替换为服务端返回的真实 id
+        if (data.message && data.message.id) {
+          for (let i = 0; i < _allMessages.length; i++) {
+            if (_allMessages[i].id === tempId) {
+              _allMessages[i].id = data.message.id;
+              break;
+            }
+          }
+          saveLocalCache(_allMessages);
+        }
+
+        textInput.value = "";
+        nameInput.value = "";
+        anonCheck.checked = false;
+        nameInput.disabled = false;
+        showCatBubble("留言成功！勇志会感受到你的心意 ⭐");
+      } catch (e) {
+        // 失败：留言已存到本地缓存
+        if (e.message && e.message.indexOf("10秒") >= 0) {
+          showCatBubble("留言太频繁了，请10秒后再试 🐱");
+        } else if (e.message && e.message.indexOf("太长") >= 0) {
+          showCatBubble("留言太长啦，精简一下（最多50字）🐱");
+        } else if (e.message && e.message.indexOf("不能为空") >= 0) {
+          showCatBubble("留言内容不能为空哦！🐱");
+        } else {
+          showCatBubble("留言已保存到本地，网络恢复后自动同步 🐱");
+        }
+        textInput.value = "";
+        nameInput.value = "";
+        anonCheck.checked = false;
+        nameInput.disabled = false;
+      }
+
+      btn.disabled = false;
+      btn.textContent = "留言 ✉";
+    }
+
+    // HTML 转义
+    function escapeHtml(str) {
+      const div = document.createElement("div");
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // 时间格式化
+    function formatTime(iso) {
+      try {
+        const d = new Date(iso);
+        const now = new Date();
+        const diff = (now - d) / 1000;
+        if (diff < 60) return "刚刚";
+        if (diff < 3600) return Math.floor(diff / 60) + "分钟前";
+        if (diff < 86400) return Math.floor(diff / 3600) + "小时前";
+        if (diff < 604800) return Math.floor(diff / 86400) + "天前";
+        return (d.getMonth() + 1) + "月" + d.getDate() + "日";
+      } catch (e) {
+        return "";
+      }
+    }
+
+    // 显示猫气泡
+    function showCatBubble(text) {
+      const bubble = document.getElementById("catBubble");
+      bubble.textContent = text;
+      bubble.classList.add("show");
+      clearTimeout(window._catTimer);
+      window._catTimer = setTimeout(() => bubble.classList.remove("show"), 3500);
+    }
+
+    // 匿名复选框联动
+    document.getElementById("msgAnon").addEventListener("change", function() {
+      const nameInput = document.getElementById("msgName");
+      nameInput.disabled = this.checked;
+      if (this.checked) nameInput.value = "";
+    });
+
+    // 页面加载后获取留言
+    loadMessages();
+
+    // ===== 养奶茶猫小游戏 =====
+    (function initCatGame() {
+      const SAVE_KEY = "yushi_milktea_cat_v1";
+      const CAT_NAME = "奶茶猫";
+
+      const ACTIONS = {
+        // 食物（增加饱食为主）
+        ramen: {
+          label: "拉面",
+          desc: "喂了" + CAT_NAME + "最爱的拉面，它超满足",
+          effects: { hunger: 25, thirst: -6, clean: -3, mood: 8, intimacy: 5 }
+        },
+        cake: {
+          label: "蛋糕",
+          desc: "喂了" + CAT_NAME + "一块甜甜的蛋糕",
+          effects: { hunger: 15, thirst: -2, clean: -3, mood: 12, intimacy: 4 }
+        },
+        sushi: {
+          label: "寿司",
+          desc: "喂了" + CAT_NAME + "新鲜的寿司",
+          effects: { hunger: 18, thirst: -3, clean: -2, mood: 5, intimacy: 3 }
+        },
+        xiaolongbao: {
+          label: "小笼包",
+          desc: "喂了" + CAT_NAME + "热腾腾的小笼包",
+          effects: { hunger: 16, thirst: -3, clean: -2, mood: 6, intimacy: 3 }
+        },
+        // 饮料（增加口渴值/解渴）
+        water: {
+          label: "水",
+          desc: "给" + CAT_NAME + "喝了清水，解渴很多",
+          effects: { thirst: 25, clean: 2, mood: 3, intimacy: 1 }
+        },
+        milktea: {
+          label: "奶茶",
+          desc: "给" + CAT_NAME + "喝了它最爱的奶茶",
+          effects: { thirst: 15, mood: 6, intimacy: 4 }
+        },
+        // 陪伴
+        pat: {
+          label: "摸摸头",
+          desc: "温柔地摸了摸" + CAT_NAME + "的小脑袋",
+          effects: { mood: 10, intimacy: 5, hunger: -2, thirst: -2 }
+        },
+        playgame: {
+          label: "打游戏",
+          desc: "陪" + CAT_NAME + "痛快地打了一场游戏",
+          effects: { mood: 15, intimacy: 12, hunger: -3, thirst: -3, clean: -2 }
+        },
+        // 见面
+        meet: {
+          label: "见面",
+          desc: "和" + CAT_NAME + "开心地见面",
+          effects: { hunger: -6, thirst: -4, clean: 8, mood: 10, intimacy: 12 }
+        }
+      };
+
+      const COMMANDS = [
+        {
+          keys: ["温柔安抚奶茶小猫"],
+          type: "small",
+          label: "温柔安抚",
+          desc: "你温柔地安抚了" + CAT_NAME,
+          effects: { mood: 8, intimacy: 5 }
+        },
+        {
+          keys: ["与奶茶猫慢慢相处"],
+          type: "small",
+          label: "慢慢相处",
+          desc: "你和" + CAT_NAME + "慢慢相处",
+          effects: { mood: 5, intimacy: 8 }
+        },
+        {
+          keys: ["可以长久陪着奶茶猫"],
+          type: "hidden",
+          label: "长久陪伴",
+          desc: "「可以长久陪着奶茶猫」——" + CAT_NAME + "感动地蹭了蹭你",
+          effects: { mood: 10, intimacy: 30 }
+        },
+        {
+          keys: ["奶茶猫贴贴"],
+          type: "short",
+          label: "贴贴",
+          desc: "你和" + CAT_NAME + "贴贴了",
+          effects: { mood: 4, intimacy: 10 }
+        },
+        {
+          keys: ["守护奶茶小猫"],
+          type: "short",
+          label: "守护",
+          desc: "你默默守护着" + CAT_NAME,
+          effects: { mood: 5, intimacy: 10 }
+        }
+      ];
+
+      const SLOGANS = {
+        high: ["今天也是元气满满的一天～", "有你在真好呀～", "最喜欢你啦～"],
+        mid: ["你再陪我久一点嘛～", "有点想你了哦～", "今天会来看我吗～"],
+        low: ["喵…肚子好饿…", "有点孤单呢…", "好想见到你…"]
+      };
+
+      let state = loadState();
+
+      function loadState() {
+        const raw = localStorage.getItem(SAVE_KEY);
+        const now = Date.now();
+        const defaultState = {
+          hunger: 75, thirst: 75, clean: 75, mood: 70, intimacy: 30,
+          lastTick: now,
+          logs: []
+        };
+        if (!raw) return defaultState;
+        try {
+          const s = JSON.parse(raw);
+          const minutesOffline = Math.max(0, Math.floor((now - (s.lastTick || now)) / 60000));
+          const decay = Math.min(20, minutesOffline * 0.3);
+          return {
+            hunger: clamp((s.hunger !== undefined ? s.hunger : 75) - decay),
+            thirst: clamp((s.thirst !== undefined ? s.thirst : 75) - decay),
+            clean: clamp((s.clean !== undefined ? s.clean : 75) - decay),
+            mood: clamp((s.mood !== undefined ? s.mood : 70) - decay),
+            intimacy: clamp(s.intimacy !== undefined ? s.intimacy : 30),
+            lastTick: now,
+            logs: Array.isArray(s.logs) ? s.logs.slice(-30) : []
+          };
+        } catch (e) {
+          return defaultState;
+        }
+      }
+
+      function saveState() {
+        state.lastTick = Date.now();
+        try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); } catch (e) {}
+      }
+
+      function clamp(v) {
+        return Math.max(0, Math.min(100, Math.round(v)));
+      }
+
+      function getBarColor(value) {
+        if (value >= 70) return "linear-gradient(90deg, #60A5FA, #3B82F6)";
+        if (value >= 40) return "linear-gradient(90deg, #FBBF24, #F59E0B)";
+        return "linear-gradient(90deg, #F87171, #EF4444)";
+      }
+
+      function labelsZh(key) {
+        const map = { hunger: "饱食", thirst: "口渴", clean: "清洁", mood: "心情", intimacy: "亲密" };
+        return map[key] || key;
+      }
+
+      function render() {
+        const stats = ["hunger", "thirst", "clean", "mood", "intimacy"];
+        stats.forEach(key => {
+          const upper = key.charAt(0).toUpperCase() + key.slice(1);
+          const el = document.getElementById("stat" + upper);
+          const bar = document.getElementById("bar" + upper);
+          if (el && bar) {
+            el.textContent = state[key];
+            bar.style.width = state[key] + "%";
+            bar.style.background = getBarColor(state[key]);
+          }
+        });
+
+        const avg = (state.hunger + state.thirst + state.clean + state.mood) / 4;
+        let pool;
+        if (avg >= 75) pool = SLOGANS.high;
+        else if (avg >= 45) pool = SLOGANS.mid;
+        else pool = SLOGANS.low;
+        const sloganEl = document.getElementById("catSlogan");
+        if (sloganEl && !sloganEl.dataset.custom) {
+          sloganEl.textContent = pool[Math.floor(Math.random() * pool.length)];
+        }
+        renderLogs();
+      }
+
+      function renderLogs() {
+        const list = document.getElementById("gameLog");
+        if (!list) return;
+        if (!state.logs || state.logs.length === 0) {
+          list.innerHTML = '<div class="cat-game-empty">还没有互动记录，快去陪陪奶茶猫吧～</div>';
+          return;
+        }
+        list.innerHTML = state.logs.slice().reverse().map(log => {
+          const gains = Object.entries(log.gains || {})
+            .map(([k, v]) => (v >= 0 ? "+" : "") + v + labelsZh(k))
+            .join("、");
+          return '<div class="cat-game-log-item">' +
+            '<span class="time">[' + log.time + ']</span>' +
+            escapeHtml(log.text) +
+            (gains ? ' <span class="gain">（' + gains + '）</span>' : '') +
+          '</div>';
+        }).join("");
+      }
+
+      function addLog(text, gains) {
+        const now = new Date();
+        const timeStr = String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0");
+        state.logs.push({ time: timeStr, text: text, gains: gains || {} });
+        if (state.logs.length > 30) state.logs = state.logs.slice(-30);
+      }
+
+      function applyEffects(effects) {
+        const gains = {};
+        for (const [k, delta] of Object.entries(effects)) {
+          if (state[k] !== undefined) {
+            state[k] = clamp(state[k] + delta);
+            gains[k] = delta;
+          }
+        }
+        return gains;
+      }
+
+      function showToast(text) {
+        let toast = document.getElementById("gameToast");
+        if (!toast) {
+          toast = document.createElement("div");
+          toast.id = "gameToast";
+          toast.className = "cat-game-toast";
+          document.body.appendChild(toast);
+        }
+        toast.textContent = text;
+        toast.classList.add("show");
+        clearTimeout(window._gameToastTimer);
+        window._gameToastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
+      }
+
+      window.gameAction = function(actionKey) {
+        const action = ACTIONS[actionKey];
+        if (!action) return;
+        const gains = applyEffects(action.effects);
+        addLog(action.desc, gains);
+        saveState();
+        render();
+        showToast(action.label + "成功！");
+      };
+
+      window.useCommand = function() {
+        const input = document.getElementById("cmdInput");
+        if (!input) return;
+        const val = input.value.trim();
+        if (!val) {
+          showToast("请输入口令哦～");
+          return;
+        }
+        const cmd = COMMANDS.find(c => c.keys.includes(val));
+        if (!cmd) {
+          showToast("这个口令不对哦，试试「奶茶猫贴贴」～");
+          return;
+        }
+        const gains = applyEffects(cmd.effects);
+        addLog(cmd.desc, gains);
+        if (cmd.type === "hidden") {
+          const sloganEl = document.getElementById("catSlogan");
+          if (sloganEl) {
+            sloganEl.textContent = "可以长久陪着奶茶猫 💙";
+            sloganEl.dataset.custom = "1";
+            setTimeout(() => { sloganEl.dataset.custom = ""; render(); }, 60000);
+          }
+        }
+        saveState();
+        render();
+        input.value = "";
+        const toastText = cmd.type === "hidden"
+          ? "隐藏口令触发！" + CAT_NAME + "超级感动！"
+          : CAT_NAME + "收到你的" + cmd.label + "啦～";
+        showToast(toastText);
+      };
+
+      // 回车提交口令
+      const cmdInput = document.getElementById("cmdInput");
+      if (cmdInput) {
+        cmdInput.addEventListener("keydown", function(e) {
+          if (e.key === "Enter") window.useCommand();
+        });
+      }
+
+      // 每30秒在线衰减
+      setInterval(() => {
+        state.hunger = clamp(state.hunger - 0.5);
+        state.thirst = clamp(state.thirst - 0.5);
+        state.clean = clamp(state.clean - 0.3);
+        state.mood = clamp(state.mood - 0.2);
+        saveState();
+        render();
+      }, 30000);
+
+      render();
+      saveState();
+    })();
+
+    // ===== 导航高亮 =====
+    document.querySelectorAll(".nav-links a").forEach(a => {
+      a.addEventListener("click", function(e) {
+        if (this.classList.contains("active")) return;
+        // 敬请期待的板块暂不跳转
+        if (this.querySelector(".nav-badge")) {
+          e.preventDefault();
+          const bubble = document.getElementById("catBubble");
+          bubble.textContent = "该板块敬请期待，下次更新哦！🐱";
+          bubble.classList.add("show");
+          clearTimeout(window._catTimer);
+          window._catTimer = setTimeout(() => bubble.classList.remove("show"), 3000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
