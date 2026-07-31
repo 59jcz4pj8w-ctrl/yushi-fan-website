@@ -4,6 +4,6 @@
   "private": true,
   "description": "关于勇志 YUSHI 粉丝网站",
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   }
 }
