@@ -2151,6 +2151,7 @@
       { y: 2026, m: 3, d: 3, items: [{ url: "https://v.douyin.com/K2wDucyIyvA/", desc: "A quick meetup for #Famous", tag: "RIIZE官抖" }] },
       { y: 2026, m: 2, d: 21, items: [{ url: "https://v.douyin.com/hFE7h2tP8tQ/", desc: "装作猫咪", tag: "" }] },
       { y: 2026, m: 2, d: 1, items: [{ url: "https://v.douyin.com/UsQR0hTtQ2A/", desc: "今天便允许你的真心", tag: "" }] },
+      { y: 2026, m: 1, d: 28, items: [{ url: "https://v.douyin.com/HFiYDwagUmc/", desc: "# BackItUp # 勇志 # NCTWISH", tag: "" }] },
       { y: 2026, m: 1, d: 26, items: [{ url: "https://v.douyin.com/XNHQUvxI1Ks/", desc: "Growl", tag: "" }] },
       { y: 2026, m: 1, d: 1, items: [{ url: "https://v.douyin.com/kW5VL7p3Zwg/", desc: "Yaaa", tag: "" }] },
       { y: 2025, m: 12, d: 26, items: [
@@ -2530,9 +2531,9 @@
     // 通过 /api/messages 读写 GitHub Gist（永久保存，token 不会暴露）
     // localStorage 仍作为本地缓存（即使网络故障也不会丢）
     const API_URL = "/api/messages";
-    const PAGE_SIZE = 1000;           // 每页显示 1000 条（与容量一致，一页全部显示）
+    const PAGE_SIZE = 2000;           // 每页显示 2000 条（与容量一致，一页全部显示）
     const MSG_MAX_LEN = 50;            // 留言字数限制 50 字
-    const MAX_MESSAGES = 1000;         // 总容量 1000 条
+    const MAX_MESSAGES = 2000;         // 总容量 2000 条
     const REQUEST_TIMEOUT = 10000;     // 单次请求超时 10 秒
     const LOCAL_CACHE_KEY = "yushi_msg_cache_v3";
     let _allMessages = [];
