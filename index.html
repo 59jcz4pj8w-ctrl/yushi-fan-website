@@ -2530,7 +2530,7 @@
     // 通过 /api/messages 读写 GitHub Gist（永久保存，token 不会暴露）
     // localStorage 仍作为本地缓存（即使网络故障也不会丢）
     const API_URL = "/api/messages";
-    const PAGE_SIZE = 500;
+    const PAGE_SIZE = 1000;           // 每页显示 1000 条（与容量一致，一页全部显示）
     const MSG_MAX_LEN = 50;            // 留言字数限制 50 字
     const MAX_MESSAGES = 1000;         // 总容量 1000 条
     const REQUEST_TIMEOUT = 10000;     // 单次请求超时 10 秒
