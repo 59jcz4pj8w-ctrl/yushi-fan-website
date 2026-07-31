@@ -1,0 +1,30 @@
+{
+  "name": "关于勇志 YUSHI",
+  "short_name": "关于勇志",
+  "description": "关于得能勇志 YUSHI 的个人介绍粉丝站",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#DBEAFE",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "assets/cover.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/cover.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/cat.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ]
+}
