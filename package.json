@@ -1,0 +1,9 @@
+{
+  "name": "about-yushi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "关于勇志 YUSHI 粉丝网站",
+  "engines": {
+    "node": "18.x"
+  }
+}
