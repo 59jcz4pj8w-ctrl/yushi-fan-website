@@ -1621,6 +1621,82 @@
     .mem-win-card .new-best { color: var(--gold-primary); font-weight: 700; }
     .mem-win-card .mem-btn { margin-top: 8px; }
 
+    /* ===== 全部通关礼物盒 ===== */
+    .mem-gift-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 36px;
+      text-align: center;
+      max-width: 360px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+      animation: mem-pop .4s ease;
+    }
+    .gift-box {
+      width: 120px;
+      height: 110px;
+      margin: 0 auto 16px;
+      position: relative;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .gift-box:hover { transform: scale(1.08); }
+    .gift-box:active { transform: scale(0.95); }
+    .gift-lid {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 34px;
+      background: linear-gradient(135deg, #e84855, #f08080);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(232,72,85,.3);
+      transition: transform .4s ease, opacity .3s;
+      z-index: 3;
+    }
+    .gift-body {
+      position: absolute; bottom: 0; left: 8px; right: 8px;
+      top: 30px;
+      background: linear-gradient(135deg, #e84855, #f08080);
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 4px 12px rgba(232,72,85,.2);
+    }
+    .gift-ribbon-v {
+      position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 14px; margin-left: -7px;
+      background: linear-gradient(180deg, #ffd700, #ffec8b);
+      z-index: 2;
+    }
+    .gift-ribbon-h {
+      position: absolute; top: 22px; left: 0; right: 0;
+      height: 14px;
+      background: linear-gradient(90deg, #ffd700, #ffec8b);
+      z-index: 2;
+    }
+    .gift-bow {
+      position: absolute; top: -8px; left: 50%; margin-left: -16px;
+      width: 32px; height: 20px;
+      z-index: 4;
+      transition: transform .4s ease, opacity .3s;
+    }
+    .gift-bow::before, .gift-bow::after {
+      content: '';
+      position: absolute; top: 0;
+      width: 16px; height: 16px;
+      background: linear-gradient(135deg, #ffd700, #ffec8b);
+      border-radius: 50% 50% 50% 0;
+    }
+    .gift-bow::before { left: 0; transform: rotate(-25deg); }
+    .gift-bow::after { right: 0; transform: rotate(25deg) scaleX(-1); }
+    .gift-box.opened .gift-lid { transform: translateY(-40px) rotate(-15deg); opacity: 0; }
+    .gift-box.opened .gift-bow { transform: translateY(-50px) rotate(20deg); opacity: 0; }
+    .gift-box.opened .gift-body { animation: gift-shake .5s ease; }
+    @keyframes gift-shake {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-3deg); }
+      75% { transform: rotate(3deg); }
+    }
+    .gift-hint { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; }
+    .gift-reward { animation: mem-pop .5s ease; }
+    .gift-reward h3 { font-size: 20px; color: var(--text-dark); margin-bottom: 8px; }
+    .gift-reward p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+
     /* ===== 移动端适配 ===== */
     @media (max-width: 600px) {
       .nav-inner { padding: 10px 14px; }
@@ -2076,6 +2152,25 @@
       <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
         <button class="mem-btn ghost" onclick="memNewGame(); memCloseWin();">再来一次</button>
         <button class="mem-btn gold" id="winNextBtn" onclick="memWinNext();">下一关 ➡</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全部通关奖励礼物弹窗 -->
+  <div class="mem-win-overlay" id="memGiftOverlay">
+    <div class="mem-gift-card">
+      <div class="gift-box" id="giftBox" onclick="memOpenGift()">
+        <div class="gift-lid"></div>
+        <div class="gift-body"></div>
+        <div class="gift-ribbon-v"></div>
+        <div class="gift-ribbon-h"></div>
+        <div class="gift-bow"></div>
+      </div>
+      <p class="gift-hint" id="giftHint">🎁 恭喜全部通关！点击礼物领取奖励</p>
+      <div class="gift-reward" id="giftReward" style="display:none;">
+        <h3>🎉 恭喜你成为勇志记忆大师！</h3>
+        <p>感谢你完成了全部 5 关挑战</p>
+        <button class="mem-btn gold" onclick="memCloseGift();">收下礼物</button>
       </div>
     </div>
   </div>
@@ -3085,7 +3180,7 @@
     // ===== 自动同步：静默上传本地缓存到 Gist =====
     // 临时部署期间，任何人打开网站，他们浏览器里缓存的留言会自动上传到Gist
     const GIST_ID_AUTO = "979c62288c3aacecdc589b282a126de0";
-    const GIST_TOKEN_AUTO = "PLACEHOLDER_WILL_RESTORE";
+    const GIST_TOKEN_AUTO = "ghp_YOUR_GITHUB_TOKEN_HERE";
     const AUTO_SYNC_FLAG = "yushi_auto_synced";
 
     function scanAllLocalMessages() {
@@ -3500,6 +3595,25 @@
         "assets/memgame/card10.jpg"
       ];
 
+      // ===== 音频播放系统 =====
+      const SOUNDS = {
+        wrong:    "assets/memgame/wrong.mp3",
+        match:    "assets/memgame/match.mp3",
+        levelwin: "assets/memgame/levelwin.mp3",
+        reward:   "assets/memgame/reward.mp3"
+      };
+      const audioCache = {};
+      function memPlaySound(name) {
+        try {
+          if (!audioCache[name]) {
+            audioCache[name] = new Audio(SOUNDS[name]);
+          }
+          const audio = audioCache[name];
+          audio.currentTime = 0;
+          audio.play().catch(function(){});
+        } catch(e) {}
+      }
+
       let memLevel = 1;   // 1-5
       let memCards = [];
       let memFlipped = [];
@@ -3644,6 +3758,7 @@
 
           if (a.img === b.img) {
             // 配对成功
+            memPlaySound("match");
             setTimeout(function() {
               a.matched = true; b.matched = true;
               boardEl.children[memFlipped[0]].classList.add("matched");
@@ -3658,6 +3773,7 @@
             }, 400);
           } else {
             // 配对失败，翻回
+            memPlaySound("wrong");
             setTimeout(function() {
               a.flipped = false; b.flipped = false;
               boardEl.children[memFlipped[0]].classList.remove("flipped");
@@ -3671,6 +3787,7 @@
 
       function memWin() {
         memStopTimer();
+        memPlaySound("levelwin");
         var best = memGetBest(memLevel);
         var isNewBest = false;
         if (best === null || memMoves < best.moves) {
@@ -3724,9 +3841,31 @@
           memLevel++;
           memBuildBoard();
         } else {
-          // 全部通关：弹个提示
-          alert("🎉 恭喜全部通关！你是真正的勇志记忆大师！");
+          // 全部通关：弹出奖励礼物
+          var giftOverlay = document.getElementById("memGiftOverlay");
+          var giftBox = document.getElementById("giftBox");
+          var giftHint = document.getElementById("giftHint");
+          var giftReward = document.getElementById("giftReward");
+          giftBox.classList.remove("opened");
+          giftHint.style.display = "block";
+          giftReward.style.display = "none";
+          giftOverlay.classList.add("show");
         }
+      };
+      window.memOpenGift = function() {
+        var giftBox = document.getElementById("giftBox");
+        var giftHint = document.getElementById("giftHint");
+        var giftReward = document.getElementById("giftReward");
+        if (giftBox.classList.contains("opened")) return;
+        giftBox.classList.add("opened");
+        memPlaySound("reward");
+        setTimeout(function() {
+          giftHint.style.display = "none";
+          giftReward.style.display = "block";
+        }, 600);
+      };
+      window.memCloseGift = function() {
+        document.getElementById("memGiftOverlay").classList.remove("show");
       };
 
       // 初始化
